@@ -1,0 +1,39 @@
+@define-color fore #e0e0e0;
+@define-color back rgba(0,0,0,0.4);
+@define-color back-no-a rgba(0,0,0,1);
+
+* {
+    font-family: JetBrainsMono Nerd Font;
+    font-weight: bold;
+    font-size: 17px;
+}
+window#waybar{
+    all:unset;
+}
+
+.modules-center,
+#custom-power,
+#tray,
+#language,
+#battery,
+#clock,
+#network,
+#bluetooth,
+#wireplumber,
+#backlight{
+    color: @fore;
+    padding: 0 10 0 10;
+    background-color: @back;
+    border-radius: 0 0 10 10;
+    border-bottom: 0.15em solid @fore;
+    border-left: 0.08em solid @fore;
+    border-right: 0.08em solid @fore;
+}
+
+#workspaces button {
+    background: none;
+    box-shadow: none;
+    border: none;
+    color: @fore;
+    padding: 0 5 0 5;
+}
