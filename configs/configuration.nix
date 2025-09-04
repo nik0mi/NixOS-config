@@ -76,7 +76,6 @@
       nixfmt	
       
       #Hyprstuff
-      hyprlandPlugins.hyprscrolling
       hyprshot
       hyprpaper
       hyprpolkitagent
@@ -94,18 +93,17 @@
     ];
   };
   
+  programs.firefox.enable = true;
+  programs.fish.enable = true;
+
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
   ];
   
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  
   programs.thunar.plugins = with pkgs.xfce; [
     thunar-archive-plugin
   ];
-  programs.firefox.enable = true;
-  programs.fish.enable = true;
 
   home-manager = {
 	  extraSpecialArgs = { inherit inputs; };
@@ -115,9 +113,9 @@
   };
 
   nix.gc = {
-	automatic = true;
-	dates = "weekly";
-	options = "--delete-older-than +5";
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than +5";
   };
 
   system.stateVersion = "25.05";
