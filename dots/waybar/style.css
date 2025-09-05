@@ -24,10 +24,6 @@ window#waybar{
     color: @fore;
     padding: 0 10 0 10;
     background-color: @back;
-    border-radius: 0 0 10 10;
-    border-bottom: 0.15em solid @fore;
-    border-left: 0.08em solid @fore;
-    border-right: 0.08em solid @fore;
 }
 
 #workspaces button {

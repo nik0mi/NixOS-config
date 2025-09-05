@@ -15,9 +15,21 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  services.xserver.enable = true;
+  programs.hyprland.enable = true;
+  programs.hyprland.xwayland.enable = true;
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --asterisks --remember --time --cmd ${inputs.hyprland.packages.${pkgs.system}.hyprland}/bin/Hyprland";
+        user = "greeter";
+      };
+    };
+  };
+
   services.xserver.videoDrivers = [ "amdgpu" ];
-  services.displayManager.ly.enable = true;
 
   networking.hostName = "ovce";
   hardware.bluetooth.enable = true;
