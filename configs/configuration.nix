@@ -21,7 +21,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --asterisks --remember --time --cmd ${pkgs.hyprland}.hyprland}/bin/Hyprland";
+        command = "${pkgs.tuigreet}/bin/tuigreet --asterisks --remember --time --cmd ${inputs.hyprland.packages.${pkgs.system}.hyprland}/bin/Hyprland";
         user = "greeter";
       };
     };

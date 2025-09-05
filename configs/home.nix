@@ -13,13 +13,11 @@
     "/.config/hypr" = {
       source = ../dots/hypr;
       recursive = true;
-      force = true;
     };
 
     "/.config/waybar" = {
       source = ../dots/waybar;
       recursive = true;
-      force = true;
     };
   };
 
@@ -50,8 +48,9 @@
     enable = true;
     xwayland.enable = true;
 
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     plugins = [
-      pkgs.hyprlandPlugins.hyprscrolling
+      inputs.hyprland-plugins.packages.${pkgs.system}.borders-plus-plus
     ];
   };
 
