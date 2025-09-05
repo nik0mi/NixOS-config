@@ -15,15 +15,13 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  programs.hyprland.enable = true;
-  programs.hyprland.xwayland.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --asterisks --remember --time --cmd ${inputs.hyprland.packages.${pkgs.system}.hyprland}/bin/Hyprland";
+        command = "${pkgs.tuigreet}/bin/tuigreet --asterisks --remember --time --cmd ${pkgs.hyprland}.hyprland}/bin/Hyprland";
         user = "greeter";
       };
     };
