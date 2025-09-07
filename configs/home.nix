@@ -15,8 +15,8 @@
       recursive = true;
     };
 
-    "/.config/waybar" = {
-      source = ../dots/waybar;
+    "/.config/quickshell" = {
+      source = ../dots/quickshell;
       recursive = true;
     };
   };

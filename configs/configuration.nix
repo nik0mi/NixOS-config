@@ -82,6 +82,8 @@
       bluetuith # bluetooth
       impala # wifi
 
+      nwg-look
+
       #File Manager
       nemo
 
@@ -96,8 +98,7 @@
       hyprpaper
       hyprpolkitagent
       hyprls
-      fuzzel
-      waybar
+      
       quickshell
       
       #Terminal

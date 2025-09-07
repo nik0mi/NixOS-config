@@ -13,10 +13,10 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    #quickshell = {
-    #  url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    quickshell = {
+      url = "github:quickshell-mirror/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... } @ inputs: {
