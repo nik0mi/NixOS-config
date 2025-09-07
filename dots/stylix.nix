@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
-
   stylix.enable = true;
+
   stylix.base16Scheme = {
 	base00 = "282828";
 	base01 = "3c3836";
@@ -21,23 +21,24 @@
 	base0E = "d3869b";
 	base0F = "d65d0e";
   };
-
-  stylix.image = ./hypr/wallpapers/wallpaper.png;
   
+  # stylix.cursor.package = pkgs.bibata-cursors;
+  # stylix.cursor.name = "Bibata-Modern-Ice";
+
   stylix.fonts = {
     serif = {
-      package = pkgs.dejavu_fonts;
-      name = "DejaVu Serif";
+      package = pkgs.nerd-fonts.jetbrains-mono;
+      name = "Nerd Fonts JetBrains Mono";
     };
 
     sansSerif = {
-      package = pkgs.dejavu_fonts;
-      name = "DejaVu Sans";
+      package = pkgs.nerd-fonts.jetbrains-mono;
+      name = "Nerd Fonts JetBrains Mono";
     };
 
     monospace = {
-      package = pkgs.dejavu_fonts;
-      name = "DejaVu Sans Mono";
+      package = pkgs.nerd-fonts.jetbrains-mono;
+      name = "JetBrainsMono Nerd Font";
     };
   };
 }

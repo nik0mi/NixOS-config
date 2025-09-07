@@ -7,29 +7,55 @@
     font-weight: bold;
     font-size: 17px;
 }
-window#waybar{
-    all:unset;
+
+#waybar.top-bar {
+    border-top: 2px solid @fore;
+    background: rgba(0,0,0,0);
+}
+#waybar.bottom-bar {
+    border-bottom: 2px solid @fore;
+    background: rgba(0,0,0,0);
+}
+#waybar.left-bar {
+    background: @fore;
+}
+#waybar.right-bar {
+    background: @fore;
 }
 
-.modules-center,
 #custom-power,
+#custom-restart,
+#custom-logout,
+#clock {
+    color: @fore;
+    padding: 0 10 0 10;
+    background-color: @back;
+    border: 2px solid @fore;
+    margin: 0 0 0 0;
+}
+
 #tray,
 #language,
 #battery,
-#clock,
-#network,
 #bluetooth,
+#network,
 #wireplumber,
 #backlight{
     color: @fore;
     padding: 0 10 0 10;
     background-color: @back;
+    border: 2px solid @fore;
+    margin: 0 0 0 0;
 }
 
 #workspaces button {
     background: none;
     box-shadow: none;
-    border: none;
     color: @fore;
     padding: 0 5 0 5;
 }
+
+#workspaces {
+    border: 2px solid @fore;
+}
+

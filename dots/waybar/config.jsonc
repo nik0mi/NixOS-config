@@ -1,109 +1,131 @@
-{
-    "layer": "top",
-    "position": "top",
-    "height": 30,
-    "spacing": 5,
-    "margin-top": 0,
-    "margin-right": 10,
-    "margin-left": 10,
+[
+    {
+        "name": "top-bar",
 
-    "modules-left": ["network", "bluetooth", "wireplumber", "backlight"],
-    "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["tray","hyprland/language", "clock", "battery", "custom/power"],
+        "layer": "top",
+        "position": "top",
+        "height": 2,
+        "margin-top": 5, 
 
-    "hyprland/workspaces": {
-        "format": "{icon}",
-        "on-click": "activate",
-        "format-icons": {
-            "default": "󰧞",
-            "active": "󰻂",
+        "modules-center": ["clock"],
+        "modules-left": ["hyprland/workspaces"],
+        "modules-right": ["custom/logout", "custom/restart", "custom/power"],
+
+        "hyprland/workspaces": {
+            "format": "{icon}",
+            "on-click": "activate",
+            "format-icons": {
+                "default": "󰧞",
+                "active": "󰻂",
+            },
+            "icon-size": 10,
+            "persistent-workspaces": {
+                "*": [ 1,2,3,4]
+            }
         },
-        "icon-size": 10,
-        "persistent-workspaces": {
-            "*": [ 1,2,3,4]
-        }
+
+        "battery": {
+            "interval":1,
+            "states": {
+                "good": 95,
+                "warning": 30,
+                "critical": 20},
+            "tooltip": false,
+            "format": "{icon} {capacity}%",
+            "format-charging": "{capacity}% 󰂄",
+            "format-plugged": "{capacity}% 󰂄",
+            "format-alt": "{time} {icon}",
+            "format-icons": ["󰁻","󰁼","󰁾","󰂀","󰂂","󰁹"],
+        },
+
+        "hyprland/language": {
+            "format": "{short}"
+        },
+
+        "clock": {
+            "format": "{:%H:%M}",
+            "format-alt": "{:%d.%m.%Y | %H:%M}",
+            "tooltip": false
+        },
+
+        "custom/power": {
+            "format" : "s",
+            "tooltip": false,
+            "on-click": "kitty shutdown -h now",
+        },
+        "custom/restart": {
+            "format" : "r",
+            "tooltip": false,
+            "on-click": "kitty reboot",
+        },
+        "custom/logout": {
+            "format" : "l",
+            "tooltip": false,
+            "on-click": "hyprctl dispatch exit",
+        },
     },
 
-    "battery": {
-        "interval":1,
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 20},
-        "tooltip": false,
-        "format": "{icon} {capacity}%",
-        "format-charging": "{capacity}% 󰂄",
-        "format-plugged": "{capacity}% 󰂄",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["󰁻","󰁼","󰁾","󰂀","󰂂","󰁹"],
+    {
+        "name": "bottom-bar",
+
+        "layer": "top",
+        "position": "bottom",
+        "height": 2,
+
+        "modules-left": ["hyprland/language", "battery", "tray"],
+        "modules-right": ["backlight", "wireplumber", "bluetooth", "network"],
+        
+        "tray": {
+            "icon-size": 16,
+            "spacing": 10,
+            "show-passive-items": true,
+        },
+        "backlight": {
+            "device": "intel_backlight",
+            "format": "{icon}{percent}%",
+            "format-icons": [
+                "󰃞 ",
+                "󰃟 ",
+                "󰃠 ",
+            ],
+            "scroll-step": 5,
+            "tooltip": false
+        },
+
+        "network": {
+            "format-wifi": " ",
+            "format-ethernet":" ",
+            "format-disconnected": "",
+            "tooltip-format": "{ipaddr}",
+            "tooltip-format-wifi": "{essid} ({signalStrength}%)  | {ipaddr}",
+            "tooltip-format-ethernet": "{ifname}   | {ipaddr}",
+            "on-click-right": "impala",
+        },
+
+        "bluetooth": {
+            "format": "{status}", 
+
+            "on-click": "sh -c 'bluetoothctl power $(bluetoothctl show | awk \"/Powered/ {print \\$2==\\\"yes\\\"?\\\"off\\\":\\\"on\\\"}\") && pkill -RTMIN+8 waybar'",
+            "on-click-right": "kitty bluetuith", 
+
+            "format-connected": "conn",
+            "format-connected-battery": "{device_battery_percentage}%",
+
+            "tooltip-format-connected": "{device_enumerate}",
+            "tooltip-format-enumerate-connected": "{device_alias}",
+            "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%",
+        },
+
+        "wireplumber": {
+            "format": "{icon} {volume}%",
+            "format-muted": "󰖁",
+            "format-icons":  ["󰕿","󰖀","󰕾"],
+            "justify": "center",
+            "tooltip-format": "{icon} {volume}%",
+            "scroll-step":5,
+            "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+            "tooltip": false
+        },
     },
+]
 
-    "wireplumber": {
-        "format": "{icon} {volume}%",
-        "format-muted": "󰖁",
-        "format-icons":  ["󰕿","󰖀","󰕾"],
-        "justify": "center",
-        "tooltip-format": "{icon} {volume}%",
-        "scroll-step":5,
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "tooltip": false
-    },
-
-    "network": {
-      "format-wifi": " ",
-      "format-ethernet":" ",
-      "format-disconnected": "",
-      "tooltip-format": "{ipaddr}",
-      "tooltip-format-wifi": "{essid} ({signalStrength}%)  | {ipaddr}",
-      "tooltip-format-ethernet": "{ifname}   | {ipaddr}",
-      "on-click-right": "kitty impala",
-    },
-
-    "bluetooth": {
-        "format": "{status}", 
-
-        "on-click": "sh -c 'bluetoothctl power $(bluetoothctl show | awk \"/Powered/ {print \\$2==\\\"yes\\\"?\\\"off\\\":\\\"on\\\"}\") && pkill -RTMIN+8 waybar'",
-        "on-click-right": "kitty bluetuith", 
-
-        "format-connected": "conn",
-        "format-connected-battery": "{device_battery_percentage}%",
-
-        "tooltip-format-connected": "{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}",
-        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%",
-    },
-
-    "hyprland/language": {
-        "format": "{short}"
-    },
-
-    "tray": {
-        "icon-size": 16,
-        "spacing": 10,
-        "show-passive-items": true,
-    },
-
-    "clock": {
-        "format": "{:%H:%M}",
-        "format-alt": "{:%d.%m.%Y | %H:%M}",
-        "tooltip": false
-    },
-
-    "backlight": {
-        "device": "intel_backlight",
-        "format": "{icon}{percent}%",
-        "format-icons": [
-            "󰃞 ",
-            "󰃟 ",
-            "󰃠 ",
-        ],
-        "scroll-step": 5,
-        "tooltip": false
-    },
-
-    "custom/power": {
-        "format" : "󰧞",
-        "tooltip": false,
-        "on-click": "wlogout --buttons-per-row 4",
-    }
-}

@@ -1,12 +1,11 @@
 {
-  description = "Nixos config flake";
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    stylix.url = "github:danth/stylix";
 
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
@@ -14,7 +13,10 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    stylix.url = "github:danth/stylix";
+    #quickshell = {
+    #  url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
   };
 
   outputs = { self, nixpkgs, ... } @ inputs: {

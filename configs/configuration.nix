@@ -20,18 +20,20 @@
   services.greetd = {
     enable = true;
     settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --asterisks --remember --time --cmd ${inputs.hyprland.packages.${pkgs.system}.hyprland}/bin/Hyprland";
+      default_session = {#inputs.hyprland.packages.${pkgs.system}.hyprland
+        command = "${pkgs.tuigreet}/bin/tuigreet --asterisks --remember --time --cmd ${pkgs.hyprland}/bin/Hyprland";
         user = "greeter";
       };
     };
   };
 
   services.xserver.videoDrivers = [ "amdgpu" ];
+  services.gvfs.enable = true;
 
   networking.hostName = "ovce";
-  hardware.bluetooth.enable = true;
   networking.networkmanager.enable = true;
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = false;
 
   security.polkit.enable = true;	
   
@@ -77,32 +79,39 @@
       gedit # text
       zathura # pdf
 
+      bluetuith # bluetooth
+      impala # wifi
+
       #File Manager
-      xfce.thunar
-      xfce.thunar-archive-plugin
+      nemo
 
       #Codestuff
+      nixd
+      alejandra	
       vscode
-      nixfmt	
-      
+
       #Hyprstuff
+      hyprland
       hyprshot
       hyprpaper
       hyprpolkitagent
+      hyprls
       fuzzel
       waybar
+      quickshell
       
       #Terminal
       fish
       kitty
-      
+      alacritty
+
       #Terminal-utils
       btop
       fastfetch
-      auto-cpufreq	
+      auto-cpufreq
     ];
   };
-  
+  stylix.enable = true;
   programs.firefox.enable = true;
   programs.fish.enable = true;
 
@@ -111,21 +120,11 @@
   environment.systemPackages = with pkgs; [
   ];
   
-  programs.thunar.plugins = with pkgs.xfce; [
-    thunar-archive-plugin
-  ];
-
   home-manager = {
 	  extraSpecialArgs = { inherit inputs; };
 	  users = {
 	    "ovce" = import ./home.nix;
 	  };
-  };
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than +5";
   };
 
   system.stateVersion = "25.05";
