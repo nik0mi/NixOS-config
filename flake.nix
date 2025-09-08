@@ -7,11 +7,11 @@
 
     stylix.url = "github:danth/stylix";
 
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+#    hyprland.url = "github:hyprwm/Hyprland";
+#    hyprland-plugins = {
+#      url = "github:hyprwm/hyprland-plugins";
+#      inputs.hyprland.follows = "hyprland";
+#    };
 
     quickshell = {
       url = "github:quickshell-mirror/quickshell";

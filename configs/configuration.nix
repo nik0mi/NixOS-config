@@ -14,14 +14,12 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
   
   services.greetd = {
     enable = true;
     settings = {
-      default_session = {#inputs.hyprland.packages.${pkgs.system}.hyprland
-        command = "${pkgs.tuigreet}/bin/tuigreet --asterisks --remember --time --cmd ${pkgs.hyprland}/bin/Hyprland";
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --asterisks --remember --time --cmd niri";
         user = "greeter";
       };
     };
@@ -72,16 +70,18 @@
       amnezia-vpn
       telegram-desktop
       
-      mako # notification
       mpv # video/audio
       qimgv # images
       p7zip # archives
       gedit # text
       zathura # pdf
-
       bluetuith # bluetooth
       impala # wifi
 
+      #Utils
+      jq
+      mako
+      socat
       nwg-look
 
       #File Manager
@@ -93,6 +93,10 @@
       vscode
 
       #Hyprstuff
+      hyprland
+      hyprlandPlugins.hyprscrolling
+      niri
+      fuzzel
       hyprland
       hyprshot
       hyprpaper
@@ -112,6 +116,8 @@
       auto-cpufreq
     ];
   };
+
+  programs.niri.enable = true;
   stylix.enable = true;
   programs.firefox.enable = true;
   programs.fish.enable = true;

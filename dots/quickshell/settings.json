@@ -13,13 +13,13 @@
         "militaryTimeClockFormat": true,
         "setWallpaperToThemeWallpaper": true,
         "systemDetails": {
-            "cpu": "CPU Name",
-            "gpu": "GPU Name",
-            "osName": "Linux Distro",
-            "osVersion": "Distro Version",
-            "ram": "Ram"
+            "cpu": "CPU Name: AMD Ryzen 5 5500U",
+            "gpu": "GPU Name: AMD Lucienne",
+            "osName": "Linux Distro: NixOS",
+            "osVersion": "Distro Version: 25.11",
+            "ram": "Ram: 8GB"
         },
-        "systemProfileImageSource": "/home/username/Pictures/system_profile_picture.png",
+        "systemProfileImageSource": "/home/ovce/Pictures/system_profile_picture.png",
         "version": "0.1"
     }
 }
