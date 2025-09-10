@@ -12,21 +12,25 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+
+    systemd-boot.configurationLimit = 5;
+    efi.canTouchEfiVariables = true;
+  };
   
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --asterisks --remember --time --cmd niri";
+        command = "${pkgs.tuigreet}/bin/tuigreet --asterisks --remember --time --cmd niri-session";
         user = "greeter";
       };
     };
   };
 
   services.xserver.videoDrivers = [ "amdgpu" ];
-  services.gvfs.enable = true;
+
 
   networking.hostName = "ovce";
   networking.networkmanager.enable = true;
@@ -55,6 +59,7 @@
     layout = "us,ru";
     variant = "";
   };
+  services.dbus.enable = true;
   services.libinput.touchpad.disableWhileTyping = true;
 
   users.users.ovce = {
@@ -79,31 +84,25 @@
       impala # wifi
 
       #Utils
-      jq
       mako
-      socat
+      swww
       nwg-look
 
       #File Manager
-      nemo
+      xfce.thunar
+      xfce.thunar-archive-plugin
 
       #Codestuff
+      vscode
       nixd
       alejandra	
-      vscode
 
-      #Hyprstuff
-      hyprland
-      hyprlandPlugins.hyprscrolling
+      #WMstuff
       niri
+      kdlfmt
       fuzzel
-      hyprland
-      hyprshot
-      hyprpaper
+
       hyprpolkitagent
-      hyprls
-      
-      quickshell
       
       #Terminal
       fish
@@ -116,11 +115,19 @@
       auto-cpufreq
     ];
   };
-
-  programs.niri.enable = true;
-  stylix.enable = true;
-  programs.firefox.enable = true;
   programs.fish.enable = true;
+  programs.firefox.enable = true;
+  programs.amnezia-vpn.enable = true;
+
+  services.gvfs.enable = true;
+  programs.xfconf.enable = true;
+  programs.thunar.enable = true;
+  programs.thunar.plugins = with pkgs.xfce; [
+    thunar-archive-plugin
+  ];
+
+
+  stylix.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
