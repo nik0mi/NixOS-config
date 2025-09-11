@@ -14,10 +14,6 @@
       source = ../dots/kitty;
       recursive = true;
     };
-    "./config/fuzzel" = {
-      source = ..dots/fuzzel;
-      recursive = true;
-    };
   };
 
   home.sessionVariables = {
@@ -43,8 +39,39 @@
         "nixbuild" = "sudo nixos-rebuild switch --flake ~/.mine/.";
       };
     };
-  };  
 
-  stylix.targets.fuzzel.enable = false;
+    btop = {
+      enable = true;
+      settings = {
+        color_theme = "stylix";
+      };
+    };
+
+#    fuzzel = {
+#      enable = true;
+#      settings = {
+#        font = "Nerd Fonts JetBrains Mono:size=24";
+#        border.width = 2;
+#        border.radius = 0;
+#        colors = {
+#          border = lib.mkForce "${config.lib.stylix.colors.base05}";
+#        };
+#        #font.size = 36;
+#        #font.weight = "bold";
+#      };
+#    };
+  };  
+  services.mako = {
+    enable = true;
+    settings = {
+      anchor = "bottom-center";
+      width = 200;
+      text-alignment = "center";
+    };
+  };
+
+  stylix.targets.mako.enable = true;
+  stylix.targets.fuzzel.enable = true;
+
   programs.home-manager.enable = true;
 }
