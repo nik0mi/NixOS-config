@@ -62,61 +62,74 @@
   services.dbus.enable = true;
   services.libinput.touchpad.disableWhileTyping = true;
 
-  users.users.ovce = {
-    isNormalUser = true;
-    description = "ovce";
-    shell = pkgs.fish;
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      #Apps
-      git
-      tmux
-      firefox
-      amnezia-vpn
-      telegram-desktop
-      
-      mpv # video/audio
-      qimgv # images
-      p7zip # archives
-      gedit # text
-      zathura # pdf
-      bluetuith # bluetooth
-      impala # wifi
+  users.users = {
+    ovce = {
+      isNormalUser = true;
+      description = "ovce";
+      shell = pkgs.fish;
+      extraGroups = [ "networkmanager" "wheel" ];
+      packages = with pkgs; [
+        #Apps
+        git
+        tmux
+        firefox
+        amnezia-vpn
+        telegram-desktop
 
-      #Utils
-      mako
-      swww
-      nwg-look
+        mpv # video/audio
+        qimgv # images
+        p7zip # archives
+        gedit # text
+        zathura # pdf
+        bluetuith # bluetooth
+        impala # wifi
 
-      #File Manager
-      xfce.thunar
-      xfce.thunar-archive-plugin
+        #Utils
+        mako
+        swww
+        nwg-look
+        hyprpolkitagent
 
-      #Codestuff
-      vscode
-      nixd
-      alejandra	
+        #File Manager
+        xfce.thunar
+        xfce.thunar-archive-plugin
 
-      #WMstuff
-      niri
-      kdlfmt
-      fuzzel
+        #Codestuff
+        vscode
+        nixd
+        alejandra	
 
-      hyprpolkitagent
-      
-      #Terminal
-      fish
-      kitty
-      alacritty
+        #WMstuff
+        niri
+        kdlfmt
+        fuzzel
 
-      #Terminal-utils
-      btop
-      fastfetch
-      auto-cpufreq
+        #Terminal
+        fish
+        kitty
 
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.caskaydia-cove
-    ];
+        #Terminal-utils
+        btop
+        fastfetch
+        auto-cpufreq
+
+        nerd-fonts.jetbrains-mono
+      ];
+    };
+    
+    server = {
+      isNormalUser = true;
+      description = "ovce";
+      shell = pkgs.fish;
+      extraGroups = [ "networkmanager" "wheel" ];
+      packages = with pkgs; [
+        git
+        tmux
+        btop
+        yazi
+        auto-cpufreq
+      ];
+    };
   };
   programs.fish.enable = true;
   programs.firefox.enable = true;
@@ -126,17 +139,9 @@
   programs.xfconf.enable = true;
   services.tumbler.enable = true;
   programs.thunar.enable = true;
-  programs.thunar.plugins = with pkgs.xfce; [
-    thunar-archive-plugin
-  ];
-
-
-  stylix.enable = true;
+  programs.thunar.plugins = with pkgs.xfce; [thunar-archive-plugin];
 
   nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [
-  ];
   
   home-manager = {
 	  extraSpecialArgs = { inherit inputs; };

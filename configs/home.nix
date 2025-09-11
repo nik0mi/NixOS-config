@@ -14,12 +14,8 @@
       source = ../dots/kitty;
       recursive = true;
     };
-    "/.themes/Nashville96-Steam" = {
-      source = ../dots/themes/retro/theme;
-      recursive = true;
-    };
-    "/.icons/Chicago95-tux" = {
-      source = ../dots/themes/retro/icons-cursor;
+    "./config/fuzzel" = {
+      source = ..dots/fuzzel;
       recursive = true;
     };
   };
@@ -49,15 +45,6 @@
     };
   };  
 
-#  gtk = {
-#    enable = true;
-#    theme = {
-#      name = lib.mkForce "Nashville96-Steam";
-#    };
-#    iconTheme = {
-#      name = lib.mkForce "Chicago95-tux";
-#    };
-#  };
-
+  stylix.targets.fuzzel.enable = false;
   programs.home-manager.enable = true;
 }

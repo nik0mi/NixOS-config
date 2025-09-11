@@ -22,12 +22,6 @@
     base0F = "a36a4b"; #a36a4b  # Brown - Tags
   };
 
-  #stylix.cursor = {
-  #  package = pkgs.bibata-cursors;
-  #  name = "Bibata-Modern-Classic";
-  #  size = 24;
-  #};
-
   stylix.fonts = {
     serif = {
       package = pkgs.nerd-fonts.jetbrains-mono;
@@ -35,13 +29,13 @@
     };
 
     sansSerif = {
-      package = pkgs.nerd-fonts.caskaydia-cove;
-      name = "CaskaydiaCove Nerd Fonts";
+      package = pkgs.nerd-fonts.jetbrains-mono;
+      name = "Nerd Fonts JetBrains Mono";
     };
 
     monospace = {
-      package = pkgs.nerd-fonts.caskaydia-cove;
-      name = "CaskaydiaCove Nerd Fonts";
+      package = pkgs.nerd-fonts.jetbrains-mono;
+      name = "Nerd Fonts JetBrains Mono";
     };
   };
 }
