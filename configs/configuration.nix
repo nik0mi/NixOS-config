@@ -11,6 +11,7 @@
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.extraOptions = ''warn-dirty = false'';
 
   boot.loader = {
     systemd-boot.enable = true;
@@ -30,7 +31,6 @@
   };
 
   services.xserver.videoDrivers = [ "amdgpu" ];
-
 
   networking.hostName = "ovce";
   networking.networkmanager.enable = true;
@@ -113,6 +113,9 @@
       btop
       fastfetch
       auto-cpufreq
+
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.caskaydia-cove
     ];
   };
   programs.fish.enable = true;
@@ -121,6 +124,7 @@
 
   services.gvfs.enable = true;
   programs.xfconf.enable = true;
+  services.tumbler.enable = true;
   programs.thunar.enable = true;
   programs.thunar.plugins = with pkgs.xfce; [
     thunar-archive-plugin

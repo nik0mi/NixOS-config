@@ -14,6 +14,14 @@
       source = ../dots/kitty;
       recursive = true;
     };
+    "/.themes/Nashville96-Steam" = {
+      source = ../dots/themes/retro/theme;
+      recursive = true;
+    };
+    "/.icons/Chicago95-tux" = {
+      source = ../dots/themes/retro/icons-cursor;
+      recursive = true;
+    };
   };
 
   home.sessionVariables = {
@@ -39,9 +47,17 @@
         "nixbuild" = "sudo nixos-rebuild switch --flake ~/.mine/.";
       };
     };
-    
-    kitty.settings.font_family = "Nerd Fonts CaskaydiaCove";
   };  
+
+#  gtk = {
+#    enable = true;
+#    theme = {
+#      name = lib.mkForce "Nashville96-Steam";
+#    };
+#    iconTheme = {
+#      name = lib.mkForce "Chicago95-tux";
+#    };
+#  };
 
   programs.home-manager.enable = true;
 }
