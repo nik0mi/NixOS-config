@@ -87,6 +87,7 @@
         #Utils
         mako
         swww
+        light
         nwg-look
         hyprpolkitagent
 
@@ -103,6 +104,7 @@
         niri
         kdlfmt
         fuzzel
+        waybar
 
         #Terminal
         fish
@@ -132,6 +134,7 @@
     };
   };
   programs.fish.enable = true;
+  programs.light.enable = true;
   programs.firefox.enable = true;
   programs.amnezia-vpn.enable = true;
 
