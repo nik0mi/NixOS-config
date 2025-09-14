@@ -47,98 +47,6 @@
       };
     };
 
-    waybar = {
-      enable = true;
-      settings.main = {
-          "layer" = "top";
-          "position" = "top";
-          "height" = 30;
-          "spacing" = 5;
-          "margin-top" = 0;
-          "margin-right" = 10;
-          "margin-left" = 10;
-
-          "modules-left" = ["network" "bluetooth" "wireplumber" "backlight"];
-          "modules-center" = ["clock"];
-          "modules-right" = ["tray" "battery" "custom/power"];
-
-          "battery" = {
-              "interval" = 1;
-              "states" = {
-                  "good" = 95;
-                  "warning" = 30;
-                  "critical" = 20;};
-              "tooltip" = false;
-              "format" = "{icon} {capacity}%";
-              "format-charging" = "{capacity}% 󰂄";
-              "format-plugged" = "{capacity}% 󰂄";
-              "format-alt" = "{time} {icon}";
-              "format-icons" = ["󰁻" "󰁼" "󰁾" "󰂀" "󰂂" "󰁹"];
-          };
-
-          "wireplumber" = {
-              "format" = "{icon} {volume}%";
-              "format-muted" = "󰖁";
-              "format-icons" =  ["󰕿" "󰖀" "󰕾"];
-              "justify" = "center";
-              "tooltip-format" = "{icon} {volume}%";
-              "scroll-step" =5;
-              "on-click" = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-              "tooltip" = false;
-          };
-
-          "network" = {
-            "format-wifi" = " ";
-            "format-ethernet" =" ";
-            "format-disconnected" = "";
-            "tooltip-format" = "{ipaddr}";
-            "tooltip-format-wifi" = "{essid} ({signalStrength}%)  | {ipaddr}";
-            "tooltip-format-ethernet" = "{ifname}   | {ipaddr}";
-            "on-click-right" = "kitty impala";
-          };
-
-          "bluetooth" = {
-              "format" = "{status}"; 
-
-              "on-click" = "sh -c 'bluetoothctl power $(bluetoothctl show | awk \"/Powered/ {print \\$2==\\\"yes\\\"?\\\"off\\\" =\\\"on\\\"}\") && pkill -RTMIN+8 waybar'";
-              "on-click-right" = "kitty bluetuith";
-
-              "format-connected" = "conn";
-              "format-connected-battery" = "{device_battery_percentage}%";
-
-              "tooltip-format-connected" = "{device_enumerate}";
-              "tooltip-format-enumerate-connected" = "{device_alias}";
-              "tooltip-format-enumerate-connected-battery" = "{device_alias}\t{device_battery_percentage}%";
-          };
-
-          "tray" = {
-              "icon-size" = 16;
-              "spacing" = 10;
-              "show-passive-items" = true;
-          };
-
-          "clock" = {
-              "format" = "{ =%H =%M}";
-              "format-alt" = "{ =%d.%m.%Y | %H =%M}";
-              "tooltip" = false;
-          };
-
-          "backlight" = {
-              "device" = "intel_backlight";
-              "format" = "{icon}{percent}%";
-              "format-icons" = ["󰃞 " "󰃟 " "󰃠 "];
-              "scroll-step" = 5;
-              "tooltip" = false;
-          };
-
-          "custom/power" = {
-              "format"  = "󰧞";
-              "tooltip" = false;
-              "on-click" = "shutdown -h now";
-          };
-      };
-    };
-
 #    fuzzel = {
 #      enable = true;
 #      settings = {
@@ -156,7 +64,7 @@
   services.mako = {
     enable = true;
     settings = {
-      anchor = "bottom-center";
+      anchor = "top-center";
       width = 200;
       text-alignment = "center";
     };

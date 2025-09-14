@@ -33,7 +33,9 @@
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   networking.hostName = "ovce";
-  networking.networkmanager.enable = true;
+  
+  networking.wireless.iwd.enable = true;
+
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
 
@@ -70,12 +72,14 @@
       extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [
         #Apps
+        cava
         git
         tmux
         firefox
         amnezia-vpn
         telegram-desktop
 
+        vlc
         mpv # video/audio
         qimgv # images
         p7zip # archives
@@ -87,8 +91,8 @@
         #Utils
         mako
         swww
-        light
         nwg-look
+        brightnessctl
         hyprpolkitagent
 
         #File Manager
@@ -104,6 +108,8 @@
         niri
         kdlfmt
         fuzzel
+        iwmenu
+        bzmenu
         waybar
 
         #Terminal
@@ -121,7 +127,7 @@
     
     server = {
       isNormalUser = true;
-      description = "ovce";
+      description = "server";
       shell = pkgs.fish;
       extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [

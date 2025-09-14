@@ -3,6 +3,12 @@
 {
   stylix.enable = true;
 
+  stylix.cursor = {
+    package = pkgs.hackneyed;
+    name = "Hackneyed";
+    size = 36;
+  };
+
   stylix.base16Scheme = {
     base00 = "3f4738"; #3f4738  # Default Background - Dark Grayish Olive
     base01 = "4c5844"; #4c5844  # Lighter Background - Welded Iron
