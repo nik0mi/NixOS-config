@@ -25,7 +25,7 @@
     settings = {
       default_session = {
         command = "${pkgs.tuigreet}/bin/tuigreet --asterisks --remember --time --cmd niri-session";
-        user = "greeter";
+       user = "greeter";
       };
     };
   };
@@ -72,21 +72,20 @@
       extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [
         #Apps
-        cava
         git
         tmux
         firefox
         amnezia-vpn
         telegram-desktop
 
-        vlc
+        vlc # video/audio
         mpv # video/audio
         qimgv # images
-        p7zip # archives
+        xarchiver # archives forntend
+        p7zip # archives backend
         gedit # text
+        termusic # music
         zathura # pdf
-        bluetuith # bluetooth
-        impala # wifi
 
         #Utils
         mako

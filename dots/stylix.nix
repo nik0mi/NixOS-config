@@ -4,9 +4,9 @@
   stylix.enable = true;
 
   stylix.cursor = {
-    package = pkgs.hackneyed;
-    name = "Hackneyed";
-    size = 36;
+    package = pkgs.simp1e-cursors;
+    name = "Simp1e-Dark";
+    size = 24;
   };
 
   stylix.base16Scheme = {

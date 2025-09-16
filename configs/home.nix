@@ -14,6 +14,16 @@
       source = ../dots/kitty;
       recursive = true;
     };
+
+    "/.config/waybar" = {
+      source = ../dots/waybar;
+      recursive = true;
+    };
+
+    "/.config/niri" = {
+      source = ../dots/niri;
+      recursive = true;
+    };
   };
 
   home.sessionVariables = {
@@ -47,19 +57,24 @@
       };
     };
 
-#    fuzzel = {
-#      enable = true;
-#      settings = {
-#        font = "Nerd Fonts JetBrains Mono =size=24";
-#        border.width = 2;
-#        border.radius = 0;
-#        colors = {
-#          border = lib.mkForce "${config.lib.stylix.colors.base05}";
-#        };
-#        #font.size = 36;
-#        #font.weight = "bold";
-#      };
-#    };
+    fuzzel = {
+      enable = true;
+      settings = {
+        font = "Nerd Fonts JetBrains Mono:semibold:size:24";
+        lines = 5;
+        line-height = 20;
+        width = 30;
+        prompt = "";
+        placeholder = "...";
+        icons-enabled = false;
+
+        border.width = 3;
+        border.radius = 0;
+        colors = {
+          border = lib.mkForce "${config.lib.stylix.colors.base05}";
+        };
+      };
+    };
   };  
   services.mako = {
     enable = true;
@@ -67,6 +82,7 @@
       anchor = "top-center";
       width = 200;
       text-alignment = "center";
+      border-color= lib.mkForce "${config.lib.stylix.colors.base07}";
     };
   };
 

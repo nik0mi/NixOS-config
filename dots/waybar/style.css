@@ -1,0 +1,210 @@
+window#waybar, tooltip {
+    background: alpha(@base00, 1.000000);
+}
+
+* {
+    font-family: "Nerd Fonts JetBrains Mono";
+    font-size: 10pt;
+}
+
+@define-color base00 #3f4738; @define-color base01 #4c5844;
+@define-color base02 #59664f; @define-color base03 #68745d;
+@define-color base04 #7a8570; @define-color base05 #c7d5c0;
+@define-color base06 #e0ead8; @define-color base07 #eff6ee;
+
+@define-color base08 #cc4455; @define-color base09 #d07a3c;
+@define-color base0A #968732; @define-color base0B #6a9e3d;
+@define-color base0C #3d8e9e; @define-color base0D #4a7cac;
+@define-color base0E #8a6fac; @define-color base0F #a36a4b;
+window#waybar, tooltip {
+    color: @base05;
+}
+
+tooltip {
+    border-color: @base0D;
+}
+#wireplumber,
+#pulseaudio,
+#sndio {
+  padding: 0 5px;
+}
+#wireplumber.muted,
+#pulseaudio.muted,
+#sndio.muted {
+  padding: 0 5px;
+}
+#upower,
+#battery {
+  padding: 0 5px;
+}
+#upower.charging,
+#battery.Charging {
+  padding: 0 5px;
+}
+#network {
+  padding: 0 5px;
+}
+#network.disconnected {
+  padding: 0 5px;
+}
+#user {
+  padding: 0 5px;
+}
+#clock {
+  padding: 0 5px;
+}
+#backlight {
+  padding: 0 5px;
+}
+#cpu {
+  padding: 0 5px;
+}
+#disk {
+  padding: 0 5px;
+}
+#idle_inhibitor {
+  padding: 0 5px;
+}
+#temperature {
+  padding: 0 5px;
+}
+#mpd {
+  padding: 0 5px;
+}
+#language {
+  padding: 0 5px;
+}
+#keyboard-state {
+  padding: 0 5px;
+}
+#memory {
+  padding: 0 5px;
+}
+#window {
+  padding: 0 5px;
+}
+#bluetooth {
+  padding: 0 5px;
+}
+#bluetooth.disabled {
+  padding: 0 5px;
+}
+.modules-left #workspaces button {
+    border-bottom: 3px solid transparent;
+}
+.modules-left #workspaces button.focused,
+.modules-left #workspaces button.active {
+    border-bottom: 3px solid @base05;
+}
+.modules-center #workspaces button {
+    border-bottom: 3px solid transparent;
+}
+.modules-center #workspaces button.focused,
+.modules-center #workspaces button.active {
+    border-bottom: 3px solid @base05;
+}
+.modules-right #workspaces button {
+    border-bottom: 3px solid transparent;
+}
+.modules-right #workspaces button.focused,
+.modules-right #workspaces button.active {
+    border-bottom: 3px solid @base05;
+}
+
+
+* {
+    font-family: JetBrainsMono Nerd Font;
+    font-weight: bold;
+    font-size: 17px;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+  }
+
+window#waybar {
+    background: @base01;
+    color: #2d3228;
+    border-right: 0.1rem solid @base02;
+    border-bottom: 0.1rem solid @base02;
+    border-left: 0.1rem solid @base02;
+  }
+
+#network,
+#bluetooth,
+#custom-power{
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+#battery,
+#backlight,
+#wireplumber {
+    background-position: right;
+    background-size: 30%;
+    background-origin: content-box;
+}
+
+
+#custom-power,
+#custom-restart,
+#custom-suspend,
+#clock,
+#tray,
+#language,
+#battery,
+#network,
+#bluetooth,
+#wireplumber,
+#backlight{
+  padding: 0 5 0 5;
+  margin: 5 10 5 10;
+  border-left: 1px solid @base05;
+  border-top: 1px solid @base05;
+  border-right: 1px solid @base02;
+  border-bottom: 1px solid @base02;
+  box-shadow: 1px 1px 1px 0px #2d3228;
+  color: @base07
+}
+
+#custom-power:hover,
+#custom-restart:hover,
+#custom-suspend:hover,
+#tray:hover,
+#battery:hover,
+#network:hover,
+#bluetooth:hover,
+#wireplumber:hover,
+#backlight:hover{
+  color: @base07;
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-shadow: 0px 0px 0px;
+  text-shadow: none;
+  background: @base0A;
+}
+
+#custom-power{
+  margin: 5 10 5 2;
+}
+#custom-restart{
+  margin: 5 2 5 2;
+}
+#custom-suspend{
+  margin: 5 2 5 5;
+}
+
+#clock {
+  padding: 0 10 0 10;
+  background-color: @base00;
+  border-left: 0.5px solid @base02;
+  border-top: 1px solid @base02;
+  border-right: 1px solid @base05;
+  border-bottom: 1px solid @base05;
+  box-shadow: -1px -0.5px 0px 0px #2d3228;
+  background-position: right;
+  background-size: 13%;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+}
