@@ -26,13 +26,13 @@
     };
 
     "/.config/fuzzel" = {
-      source = "../dots/fuzzel";
+      source = ../dots/fuzzel;
       recursive = true;
     };
   };
 
   home.sessionVariables = {
-    DISPLAY = " =0";
+    DISPLAY = ":0";
     NIXOS_OZONE_WL = "1";
     XDG_SESSION_TYPE = "wayland";
   };
@@ -62,6 +62,7 @@
       };
     };
   };  
+  
   services.mako = {
     enable = true;
     settings = {
