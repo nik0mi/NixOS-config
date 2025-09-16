@@ -24,6 +24,11 @@
       source = ../dots/niri;
       recursive = true;
     };
+
+    "/.config/fuzzel" = {
+      source = "../dots/fuzzel";
+      recursive = true;
+    };
   };
 
   home.sessionVariables = {
@@ -54,25 +59,6 @@
       enable = true;
       settings = {
         color_theme = "stylix";
-      };
-    };
-
-    fuzzel = {
-      enable = true;
-      settings = {
-        font = "Nerd Fonts JetBrains Mono:semibold:size:24";
-        lines = 5;
-        line-height = 20;
-        width = 30;
-        prompt = "";
-        placeholder = "...";
-        icons-enabled = false;
-
-        border.width = 3;
-        border.radius = 0;
-        colors = {
-          border = lib.mkForce "${config.lib.stylix.colors.base05}";
-        };
       };
     };
   };  
