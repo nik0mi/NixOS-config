@@ -35,6 +35,7 @@
   networking.hostName = "ovce";
   
   networking.wireless.iwd.enable = true;
+  networking.networkmanager.wifi.backend = "iwd";
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
