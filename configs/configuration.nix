@@ -7,7 +7,7 @@
       inputs.home-manager.nixosModules.default
 
       ../modules/nixos/auto-cpufreq.nix
-      ../dots/stylix.nix
+      ../modules/nixos/stylix.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
