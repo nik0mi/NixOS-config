@@ -18,8 +18,7 @@
     systemd-boot.configurationLimit = 5;
     efi.canTouchEfiVariables = true;
   };
-  
-#  services.displayManager.ly.enable = true;
+
   services.greetd = {
     enable = true;
     settings = {
@@ -64,6 +63,8 @@
   };
   services.dbus.enable = true;
   services.libinput.touchpad.disableWhileTyping = true;
+
+  fonts.fontconfig.antialias = false;
 
   users.users = {
     ovce = {

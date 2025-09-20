@@ -3,7 +3,7 @@
 {
   home.file = {
     "/.config/fuzzel" = {
-      source = ../dots/fuzzel;
+      source = ../fuzzel;
       recursive = true;
     };
   };

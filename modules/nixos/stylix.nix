@@ -30,18 +30,18 @@
 
   stylix.fonts = {
     serif = {
-      package = pkgs.nerd-fonts.jetbrains-mono;
-      name = "Nerd Fonts JetBrains Mono";
+      package = pkgs.vt323;
+      name = "vt323";
     };
 
     sansSerif = {
-      package = pkgs.nerd-fonts.jetbrains-mono;
-      name = "Nerd Fonts JetBrains Mono";
+      package = pkgs.vt323;
+      name = "vt323";
     };
 
     monospace = {
-      package = pkgs.nerd-fonts.jetbrains-mono;
-      name = "Nerd Fonts JetBrains Mono";
+      package = pkgs.vt323;
+      name = "vt323";
     };
   };
 }

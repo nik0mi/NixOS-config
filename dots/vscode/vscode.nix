@@ -88,7 +88,7 @@
         
         "update.mode" = "none";
         
-        "workbench.colorTheme" = "Stylix";
+        "workbench.colorTheme" = "Steam Classic";
         "extensions.ignoreRecommendations" = true;
         "security.workspace.trust.untrustedFiles" = "open";
         "workbench.secondarySideBar.defaultVisibility" = "hidden";

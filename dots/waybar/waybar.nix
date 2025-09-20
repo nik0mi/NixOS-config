@@ -3,7 +3,7 @@
 {
   home.file = {
     "/.config/waybar" = {
-      source = ../dots/waybar;
+      source = ../waybar;
       recursive = true;
     };
   };

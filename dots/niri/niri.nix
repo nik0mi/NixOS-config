@@ -3,7 +3,7 @@
 {
   home.file = {
     "/.config/niri" = {
-      source = ../dots/niri;
+      source = ../niri;
       recursive = true;
     };
   };
