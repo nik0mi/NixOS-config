@@ -1,20 +1,20 @@
-{ config, pkgs, inputs, lib, ... } :
+{ ... } :
 
 {
   imports =
-  [
-    ../dots/vscode/vscode.nix
-    ../dots/mako/mako.nix
-    ../dots/btop/btop.nix
-    ../dots/fish/fish.nix
+    [
+      ../dots/vscode/vscode.nix
+      ../dots/mako/mako.nix
+      ../dots/btop/btop.nix
+      ../dots/fish/fish.nix
 
-    ../dots/niri/niri.nix
-    ../dots/fish/fish.nix
-    ../dots/fuzzel/fuzzel.nix
-    ../dots/waybar/waybar.nix
+      ../dots/niri/niri.nix
+      ../dots/fish/fish.nix
+      ../dots/fuzzel/fuzzel.nix
+      ../dots/waybar/waybar.nix
 
-    ../modules/home-manager/git/git.nix
-  ];
+      ../modules/home-manager/git/git.nix
+    ];
 
   nixpkgs.config.allowUnfree = true;
 

@@ -88,7 +88,10 @@
         
         "update.mode" = "none";
         
+        "workbench.colorTheme" = "Stylix";
         "extensions.ignoreRecommendations" = true;
+        "security.workspace.trust.untrustedFiles" = "open";
+        "workbench.secondarySideBar.defaultVisibility" = "hidden";
 
         #ONLY FOR NIX
         "nix.serverPath" = "nixd";
@@ -108,9 +111,6 @@
               };
             };
         };
-        "security.workspace.trust.untrustedFiles" = "open";
-        "workbench.secondarySideBar.defaultVisibility" = "hidden";
-        "workbench.colorTheme" = "Steam Classic";
     };
   };
 }

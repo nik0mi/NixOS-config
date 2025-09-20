@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports =
@@ -6,8 +6,7 @@
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
 
-      ../modules/nixos/auto-cpufreq.nix
-      ../modules/nixos/stylix.nix
+      ../modules/modules.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -20,6 +19,7 @@
     efi.canTouchEfiVariables = true;
   };
   
+#  services.displayManager.ly.enable = true;
   services.greetd = {
     enable = true;
     settings = {
