@@ -13,8 +13,6 @@
       ../dots/fuzzel/fuzzel.nix
       ../dots/waybar/waybar.nix
 
-      ../dots/themes/gtk.nix
-
       ../modules/home-manager/git/git.nix
     ];
 

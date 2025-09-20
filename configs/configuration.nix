@@ -7,6 +7,7 @@
       inputs.home-manager.nixosModules.default
 
       ../modules/modules.nix
+      ../pkgs/default.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -66,6 +67,11 @@
 
   fonts.fontconfig.antialias = false;
 
+  environment.etc."xdg/gtk-3.0/settings.ini".text = ''
+    [Settings]
+    gtk-theme-name = Nashville96-Steam
+  '';
+
   users.users = {
     ovce = {
       isNormalUser = true;
@@ -94,6 +100,7 @@
         swww
         nwg-look
         brightnessctl
+        nix-prefetch-github
         hyprpolkitagent
 
         #File Manager
