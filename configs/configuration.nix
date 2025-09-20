@@ -8,6 +8,8 @@
 
       ../modules/modules.nix
       ../pkgs/default.nix
+
+      ../server/server.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -65,12 +67,12 @@
   services.dbus.enable = true;
   services.libinput.touchpad.disableWhileTyping = true;
 
-  fonts.fontconfig.antialias = false;
+  #fonts.fontconfig.antialias = false;
 
-  environment.etc."xdg/gtk-3.0/settings.ini".text = ''
-    [Settings]
-    gtk-theme-name = Nashville96-Steam
-  '';
+  #environment.etc."xdg/gtk-3.0/settings.ini".text = ''
+  #  [Settings]
+  #  gtk-theme-name = Nashville96-Steam
+  #'';
 
   users.users = {
     ovce = {
@@ -100,7 +102,7 @@
         swww
         nwg-look
         brightnessctl
-        nix-prefetch-github
+        better-control
         hyprpolkitagent
 
         #File Manager
@@ -128,22 +130,6 @@
         btop
         fastfetch
         auto-cpufreq
-
-        nerd-fonts.jetbrains-mono
-      ];
-    };
-    
-    server = {
-      isNormalUser = true;
-      description = "server";
-      shell = pkgs.fish;
-      extraGroups = [ "networkmanager" "wheel" ];
-      packages = with pkgs; [
-        git
-        tmux
-        btop
-        yazi
-        auto-cpufreq
       ];
     };
   };
@@ -164,6 +150,7 @@
 	  extraSpecialArgs = { inherit inputs; };
 	  users = {
 	    "ovce" = import ./home.nix;
+      "server" = import ../server/home.nix;
 	  };
   };
 

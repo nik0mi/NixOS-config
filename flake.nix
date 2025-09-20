@@ -13,7 +13,6 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./configs/configuration.nix
-
         inputs.home-manager.nixosModules.default
         
         inputs.stylix.nixosModules.stylix
