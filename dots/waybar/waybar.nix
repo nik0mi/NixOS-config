@@ -1,10 +1,8 @@
 { ... } :
 
 {
-  home.file = {
-    "/.config/waybar" = {
-      source = ../waybar;
-      recursive = true;
-    };
-  };
+  imports =[
+    ./config.nix
+    ./style.nix
+  ];
 }

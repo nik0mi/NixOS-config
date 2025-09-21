@@ -100,7 +100,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
-spawn-at-startup "swww img ~/Pictures/Wallpapers/1.png"
+spawn-at-startup "swww img ~/.mine/dots/wallpapers/1.png"
 spawn-at-startup "systemctl --user start hyprpolkitagent"
 
 binds {

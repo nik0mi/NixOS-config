@@ -25,7 +25,7 @@
     settings = {
       default_session = {
         command = "${pkgs.tuigreet}/bin/tuigreet --asterisks --remember --time --cmd niri-session";
-       user = "greeter";
+        user = "greeter";
       };
     };
   };
@@ -65,13 +65,6 @@
   services.dbus.enable = true;
   services.libinput.touchpad.disableWhileTyping = true;
 
-  #fonts.fontconfig.antialias = false;
-
-  #environment.etc."xdg/gtk-3.0/settings.ini".text = ''
-  #  [Settings]
-  #  gtk-theme-name = Nashville96-Steam
-  #'';
-
   users.users = {
     ovce = {
       isNormalUser = true;
@@ -100,7 +93,6 @@
         swww
         nwg-look
         brightnessctl
-        better-control
         hyprpolkitagent
 
         #File Manager
@@ -146,9 +138,7 @@
   
   home-manager = {
 	  extraSpecialArgs = { inherit inputs; };
-	  users = {
-	    "ovce" = import ./home.nix;
-	  };
+	  users = { "ovce" = import ./home.nix; };
   };
 
   system.stateVersion = "25.05";

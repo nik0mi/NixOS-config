@@ -1,20 +1,19 @@
 { ... } :
 
 {
-  imports =
-    [
-      ../dots/vscode/vscode.nix
-      ../dots/mako/mako.nix
-      ../dots/btop/btop.nix
-      ../dots/fish/fish.nix
+  imports =[
+    ../dots/vscode/vscode.nix
+    ../dots/mako/mako.nix
+    ../dots/btop/btop.nix
+    ../dots/fish/fish.nix
 
-      ../dots/niri/niri.nix
-      ../dots/fish/fish.nix
-      ../dots/fuzzel/fuzzel.nix
-      ../dots/waybar/waybar.nix
+    ../dots/niri/niri.nix
+    ../dots/fish/fish.nix
+    ../dots/fuzzel/fuzzel.nix
+    ../dots/waybar/waybar.nix
 
-      ../modules/home-manager/git/git.nix
-    ];
+    ../modules/home-manager/git/git.nix
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -24,7 +23,6 @@
   home.stateVersion = "25.05";
   
   home.sessionVariables = {
-    DISPLAY = ":0";
     NIXOS_OZONE_WL = "1";
     XDG_SESSION_TYPE = "wayland";
   };

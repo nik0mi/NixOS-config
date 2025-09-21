@@ -31,17 +31,17 @@
   stylix.fonts = {
     serif = {
       package = pkgs.nerd-fonts.jetbrains-mono;
-      name = "Nerd Fonts JetBrainsMono";
+      name = "JetBrainsMono Nerd Font Mono";
     };
 
     sansSerif = {
       package = pkgs.nerd-fonts.jetbrains-mono;
-      name = "Nerd Fonts JetBrainsMono";
+      name = "JetBrainsMono Nerd Font Mono";
     };
 
     monospace = {
       package = pkgs.nerd-fonts.jetbrains-mono;
-      name = "Nerd Fonts JetBrainsMono";
+      name = "JetBrainsMono Nerd Font Mono";
     };
   };
 }
