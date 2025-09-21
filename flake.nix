@@ -6,6 +6,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     stylix.url = "github:danth/stylix";
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs = { self, nixpkgs, ... } @ inputs: {

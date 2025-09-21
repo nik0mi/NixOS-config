@@ -3,7 +3,8 @@
 {
   imports =
   [
-    ../modules/nixos/stylix.nix
-    ../modules/nixos/auto-cpufreq.nix
+    ./nixos/stylix.nix
+    ./nixos/auto-cpufreq.nix
+    ./nixos/server.nix
   ];
 }

@@ -8,8 +8,6 @@
 
       ../modules/modules.nix
       ../pkgs/default.nix
-
-      ../server/server.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -150,7 +148,6 @@
 	  extraSpecialArgs = { inherit inputs; };
 	  users = {
 	    "ovce" = import ./home.nix;
-      "server" = import ../server/home.nix;
 	  };
   };
 
