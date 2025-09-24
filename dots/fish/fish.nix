@@ -9,7 +9,6 @@
         body = ''
           cd ~/.mine/
           git add .
-          git commit -m "Update system configuration"
           sudo nixos-rebuild switch --flake ~/.mine/.'';
       };
       server = {

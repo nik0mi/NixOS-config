@@ -28,6 +28,7 @@
           simulation-distance = 15;
           
           online-mode = false;
+          server-port = 25565;
         };
 
         jvmOpts = "-Xms2048M -Xmx4096M";
@@ -49,6 +50,7 @@
           simulation-distance = 15;
           
           online-mode = false;
+          server-port = 25656;
         };
 
         jvmOpts = "-Xms2048M -Xmx4096M";
