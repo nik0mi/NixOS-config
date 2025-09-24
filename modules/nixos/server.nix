@@ -1,51 +1,58 @@
-{ ... }:
+{ pkgs, inputs, ... }:
 
 {
-  services.minecraft-server = {
-    enable = false;
+  imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ];
+  nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
+
+  services.minecraft-servers = {
+    enable = true;
     eula = true;
+    openFirewall = true;
     
-    declarative = true;
-    dataDir = "/var/lib/mine_server";
-    serverProperties = {
-      motd = "Sosali?";
+    #To connect to the console, run tmux -S /run/minecraft/mine_server.sock attach, press Ctrl + b then d to detach
+    #systemctl start minecraft-server-mine_server
+    servers = {
+      mine_server = {
+        enable = true;
+        autoStart = false;
+        package = pkgs.vanillaServers.vanilla-1_21_5;
 
-      max-players=4;
-      gamemode = "survival";
-      difficulty = "hard";
-      
-      simulation-distance = 15;
-      
-      online-mode = false;
+        serverProperties = {
+          motd = "§l§dsosalki?";
+
+          allow-cheats = true;
+          gamemode = "survival";
+          difficulty = "hard";
+          
+          max-players=4;
+          simulation-distance = 15;
+          
+          online-mode = false;
+        };
+
+        jvmOpts = "-Xms2048M -Xmx4096M";
+      };
+
+      second_server = {
+        enable = true;
+        autoStart = false;
+        package = pkgs.vanillaServers.vanilla-1_21_8;
+
+        serverProperties = {
+          motd = "§l§dsosalki?";
+
+          allow-cheats = true;
+          gamemode = "survival";
+          difficulty = "hard";
+          
+          max-players=2;
+          simulation-distance = 15;
+          
+          online-mode = false;
+        };
+
+        jvmOpts = "-Xms2048M -Xmx4096M";
+      };
     };
-    jvmOpts = "-Xms2048M -Xmx4096M";
   };
-#  imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ];
-#  nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
-
-#  services.minecraft-servers = {
-#    enable = true;
-#    eula = true;
-#    
-#    dataDir = "/var/lib/mine_servers/";
-#
-#    servers.mine_server = {
-#        enable = true;
-#        package = pkgs.vanillaServers.vanilla-1_21_8;
-#
-#        serverProperties = {
-#        motd = "Sosali?";
-#
-#        max-players=4;
-#        gamemode = "survival";
-#        difficulty = "hard";
-#        
-#        simulation-distance = 15;
-#        
-#        online-mode = false;
-#      };
-#
-#      jvmOpts = "-Xms4092M -Xmx4092M";
-#    };
-#  };
 }

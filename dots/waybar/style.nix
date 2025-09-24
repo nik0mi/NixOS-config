@@ -4,7 +4,7 @@
   programs.waybar.style = ''
     * {
         font-family: JetBrainsMono Nerd Font;
-        font-weight: 150;
+        font-weight: normal;
         font-size: 17px;
         min-height: 0;
         border: none;

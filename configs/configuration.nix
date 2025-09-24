@@ -7,7 +7,6 @@
       inputs.home-manager.nixosModules.default
 
       ../modules/modules.nix
-      ../pkgs/default.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -33,9 +32,7 @@
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   networking.hostName = "ovce";
-  
   networking.wireless.iwd.enable = true;
-  networking.networkmanager.wifi.backend = "iwd";
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
@@ -84,11 +81,13 @@
         qimgv # images
         xarchiver # archives forntend
         p7zip # archives backend
-        gedit # text
         termusic # music
         zathura # pdf
+        notepad-next # text
 
         #Utils
+        impala
+        bluetui
         mako
         swww
         nwg-look
@@ -96,6 +95,7 @@
         hyprpolkitagent
 
         #File Manager
+        yazi
         xfce.thunar
         xfce.thunar-archive-plugin
 
@@ -123,6 +123,7 @@
       ];
     };
   };
+
   programs.fish.enable = true;
   programs.light.enable = true;
   programs.firefox.enable = true;

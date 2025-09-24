@@ -52,7 +52,7 @@
         "format-connected" = "{device_alias}";
         "format-connected-battery" = "{device_alias} {device_battery_percentage}%";
         "on-click" = "sh -c 'bluetoothctl power $(bluetoothctl show | awk \"/Powered/ {print \\$2==\\\"yes\\\"?\\\"off\\\":\\\"on\\\"}\") && pkill -RTMIN+8 waybar'";
-        "on-click-right" = "bzmenu --launcher fuzzel";
+        "on-click-right" = "bluetui";
         "tooltip-format-connected" = "{device_enumerate}";
         "tooltip-format-enumerate-connected" = "{device_alias}";
         "tooltip-format" = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
@@ -91,7 +91,7 @@
       "interval" = 2;
       "format-ethernet" = "󰈁";
       "format-wifi" = " ";
-      "on-click-right" = "iwmenu --launcher fuzzel";
+      "on-click-right" = "bluetui";
       "format-disconnected" = " 󱎘 ";
       "tooltip-format-disconnected" = "Disconnected";
       "tooltip-format" = "Network = {essid}\nSignal strength = {signalStrength}%\nInterface = <b>{ifname}</b>\nIP = <b>{ipaddr}/{cidr}</b>\nGateway = <b>{gwaddr}</b>\nNetmask = <b>{netmask}</b>";

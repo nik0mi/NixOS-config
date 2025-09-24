@@ -2,6 +2,7 @@
 
 {
   programs.kitty = {
+    enable = true;
     settings = {
       shell_integration = "no-cursor";
       cursor_shape = "block";
