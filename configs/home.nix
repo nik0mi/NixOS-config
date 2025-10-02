@@ -3,6 +3,7 @@
 {
   imports =[
     ../dots/vscode/vscode.nix
+    ../dots/helix/helix.nix
     ../dots/mako/mako.nix
     ../dots/btop/btop.nix
     ../dots/fish/fish.nix
@@ -23,7 +24,6 @@
   home.stateVersion = "25.05";
   
   home.sessionVariables = {
-    DISPLAY = ":0";
     NIXOS_OZONE_WL = "1";
     XDG_SESSION_TYPE = "wayland";
   };

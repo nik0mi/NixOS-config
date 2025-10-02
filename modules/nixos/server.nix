@@ -18,7 +18,7 @@
         package = pkgs.vanillaServers.vanilla-1_21_5;
 
         serverProperties = {
-          motd = "§l§dsosalki?";
+          motd = "§l§dsosalki only";
 
           allow-cheats = true;
           gamemode = "survival";
@@ -28,7 +28,7 @@
           simulation-distance = 15;
           
           online-mode = false;
-          server-port = 25565;
+          server-port = 25656;#change port to 25565 if want start server
         };
 
         jvmOpts = "-Xms2048M -Xmx4096M";
@@ -40,7 +40,7 @@
         package = pkgs.vanillaServers.vanilla-1_21_8;
 
         serverProperties = {
-          motd = "§l§dsosalki?";
+          motd = "§l§dsosalki only";
 
           allow-cheats = true;
           gamemode = "survival";
@@ -50,7 +50,7 @@
           simulation-distance = 15;
           
           online-mode = false;
-          server-port = 25656;
+          server-port = 25565;#change port to 25565 if want start server
         };
 
         jvmOpts = "-Xms2048M -Xmx4096M";

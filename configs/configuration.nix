@@ -76,14 +76,14 @@
         amnezia-vpn
         telegram-desktop
 
-        vlc # video/audio
         mpv # video/audio
         qimgv # images
         xarchiver # archives forntend
         p7zip # archives backend
         termusic # music
         zathura # pdf
-        notepad-next # text
+        micro# text
+        helix# code editor
 
         #Utils
         impala
@@ -104,13 +104,12 @@
         nixd
         alejandra	
 
+
         #WMstuff
         niri
         kdlfmt
-        fuzzel
-        iwmenu
-        bzmenu
         waybar
+        fuzzel
 
         #Terminal
         fish

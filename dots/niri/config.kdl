@@ -118,15 +118,15 @@ binds {
     Mod+Q { close-window; }
     Mod+Shift+Q { quit; }
 
-    Mod+J     { focus-column-left; }
-    Mod+K     { focus-window-down; }
-    Mod+L     { focus-window-up; }
-    Mod+Semicolon     { focus-column-right; }
+    Mod+H     { focus-column-left; }
+    Mod+J     { focus-window-down; }
+    Mod+K     { focus-window-up; }
+    Mod+L     { focus-column-right; }
 
-    Mod+Shift+J     { move-column-left; }
-    Mod+Shift+K     { move-window-down; }
-    Mod+Shift+L     { move-window-up; }
-    Mod+Shift+Semicolon     { move-column-right; }
+    Mod+Shift+H     { move-column-left; }
+    Mod+Shift+J     { move-window-down; }
+    Mod+Shift+K     { move-window-up; }
+    Mod+Shift+L     { move-column-right; }
 
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
@@ -146,10 +146,10 @@ binds {
     Mod+C { center-column; }
     Mod+Ctrl+C { center-visible-columns; }
 
-    Mod+Ctrl+J { set-column-width "-10%"; }
-    Mod+Ctrl+Semicolon { set-column-width "+10%"; }
+    Mod+Ctrl+H { set-column-width "-10%"; }
+    Mod+Ctrl+L { set-column-width "+10%"; }
     Mod+Ctrl+K { set-window-height "-10%"; }
-    Mod+Ctrl+L { set-window-height "+10%"; }
+    Mod+Ctrl+J { set-window-height "+10%"; }
 
     Mod+V       { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
