@@ -4,9 +4,15 @@
   stylix.enable = true;
 
   stylix.cursor = {
-    package = pkgs.simp1e-cursors;
-    name = "Simp1e-Dark";
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
     size = 24;
+  };
+
+  stylix.icons = {
+    enable = true;
+    package = pkgs.nordzy-icon-theme;
+    dark = "Nordzy-icon";
   };
 
   stylix.base16Scheme = {

@@ -6,41 +6,44 @@
   programs.helix = {
     enable = true;
 
-    languages = {
-      language = {
-        debugger = {
-          "name" = "debugpy";
-          "transport" = "stdio";
-          "command" = "python3";
-          "args" = ["-m" "debugpy.adapter"];
-        };
-        debugger.templates = {
-         "name" = "Launch current file";
-         "request" = "launch";
-         "args" = "{ program = \"{0}\" }";
-        };
-      };
-    };
+    languages.language = [
+      {
+        name = "python";
+          debugger = {
+            name = "debugpy";
+            transport = "stdio";
+            command = "python3";
+            args = [ "-m" "debugpy.adapter" ];
+          };
+        debugger.templates = [
+          {
+            name = "Launch current file";
+            request = "launch";
+            args = { program = "{0}"; };
+          }
+        ];
+      }
+    ];
     
     settings = {
       editor = {
         line-number = "relative";
-
-        keys.normal = {
-           "C-g" =[
-              ":new"
-              ":insert-output lazygit"
-              ":buffer-close!"
-              ":redraw"];
-
-           "C-y"= [
-              ":sh rm -f /tmp/unique-file"
-              ":insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file"
-              ":insert-output echo \\\"\\x1b[?1049h\\x1b[?2004h\\\" > /dev/tty"
-              ":open %sh{cat /tmp/unique-file}"
-              ":redraw" ];
-         };
       };
+
+      keys.normal = {
+         "C-g" =[
+            ":new"
+            ":insert-output lazygit"
+            ":buffer-close!"
+            ":redraw"];
+
+         "C-y"= [
+            ":sh rm -f /tmp/unique-file"
+            ":insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file"
+            ":insert-output echo \\\"\\x1b[?1049h\\x1b[?2004h\\\" > /dev/tty"
+            ":open %sh{cat /tmp/unique-file}"
+            ":redraw" ];
+       };
     };
   };
 

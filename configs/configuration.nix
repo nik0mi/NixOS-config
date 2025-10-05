@@ -16,10 +16,12 @@
      enable = true;
      device = "/dev/sda";
      useOSProber = true;
-     gfxmodeEfi = "1920x1080";
+     gfxmodeEfi = "1920x1080,auto";
+     gfxpayloadEfi = "keep";
      default = "saved";
      extraEntries = "GRUB_SAVEDEFAULT=true";
   };
+  boot.loader.efi.canTouchEfiVariables = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
