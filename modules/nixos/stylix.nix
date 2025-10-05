@@ -16,23 +16,23 @@
   };
 
   stylix.base16Scheme = {
-    base00 =  "2b3339";
-    base01 =  "323c41";
-    base02 =  "503946";
-    base03 =  "868d80";
-    base04 =  "d3c6aa";
-    base05 =  "d3c6aa";
-    base06 =  "e9e8d2";
-    base07 =  "fff9e8";
-    base08 =  "7fbbb3";
-    base09 =  "d699b6";
-    base0A =  "83c092";
-    base0B =  "dbbc7f";
-    base0C =  "e69875";
-    base0D =  "a7c080";
-    base0E =  "e67e80";
-    base0F =  "d699b6";
-  };
+    base00 = "2b3339"; # Default Background
+    base01 = "323c41"; # Lighter Background (Used for status bars, line number and folding marks)
+    base02 = "503946"; # Selection Background
+    base03 = "868d80"; # Comments, Invisibles, Line Highlighting
+    base04 = "d3c6aa"; # Dark Foreground (Used for status bars)
+    base05 = "d3c6aa"; # Default Foreground, Caret, Delimiters, Operators
+    base06 = "e9e8d2"; # Light Foreground (Not often used)
+    base07 = "fff9e8"; # Light Background (Not often used)
+    base08 = "7fbbb3"; # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+    base09 = "d699b6"; # Integers, Boolean, Constants, XML Attributes, Markup Link Url
+    base0A = "83c092"; # Classes, Markup Bold, Search Text Background
+    base0B = "dbbc7f"; # Strings, Inherited Class, Markup Code, Diff Inserted
+    base0C = "e69875"; # Support, Regular Expressions, Escape Characters, Markup Quotes
+    base0D = "a7c080"; # Functions, Methods, Attribute IDs, Headings
+    base0E = "e67e80"; # Keywords, Storage, Selector, Markup Italic, Diff Changed
+    base0F = "d699b6"; # Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
+ };
 
   stylix.fonts = {
     serif = {

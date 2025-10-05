@@ -1,4 +1,4 @@
-{ ... } :
+{ config, ... } :
 
 {
   programs.waybar.settings.main = {
@@ -49,6 +49,7 @@
     };
     "bluetooth" = {
         "format" = "{status}";
+        "format-no-controller" = "x";
         "format-connected" = "{device_alias}";
         "format-connected-battery" = "{device_alias} {device_battery_percentage}%";
         "on-click" = "sh -c 'bluetoothctl power $(bluetoothctl show | awk \"/Powered/ {print \\$2==\\\"yes\\\"?\\\"off\\\":\\\"on\\\"}\") && pkill -RTMIN+8 waybar'";
@@ -65,10 +66,10 @@
         "calendar" = {
             "mode"  = "month";
             "format" = {
-              "month" =     "<span color='#7a8570'><b>{}</b></span>";
-              "days" =      "<span color='#eff6ee'><b>{}</b></span>";
-              "weekdays" =  "<span color='#7a8570'><b>{}</b></span>";
-              "today" =     "<span color='#7a8570'><b>{}</b></span>";
+              "month" =     "<span color='#${config.lib.stylix.colors.base04}'><b>{}</b></span>";
+              "days" =      "<span color='#${config.lib.stylix.colors.base07}'><b>{}</b></span>";
+              "weekdays" =  "<span color='#${config.lib.stylix.colors.base04}'><b>{}</b></span>";
+              "today" =     "<span color='#${config.lib.stylix.colors.base04}'><b>{}</b></span>";
             };
         };
     };

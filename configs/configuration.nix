@@ -101,11 +101,9 @@
         mako
         swww
         nwg-look
-        brightnessctl
         hyprpolkitagent
 
         #WMstuff
-        niri
         waybar
         wl-clipboard
         fuzzel
@@ -121,9 +119,8 @@
       ];
     };
   };
-
+ 
   programs.fish.enable = true;
-  programs.light.enable = true;
   programs.firefox.enable = true;
   programs.amnezia-vpn.enable = true;
 

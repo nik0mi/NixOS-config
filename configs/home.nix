@@ -25,7 +25,6 @@
   home.stateVersion = "25.05";
   
   home.sessionVariables = {
-    DISPLAY = ":0";
     EDITOR = "hx";
     NIXOS_OZONE_WL = "1";
     XDG_SESSION_TYPE = "wayland";
