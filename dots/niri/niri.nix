@@ -29,84 +29,102 @@
           mouse.accel-speed = -0.5;
           touchpad."tap" = true;
     
-          "warp-mouse-to-focus" = true;
-          "workspace-auto-back-and-forth" = true;
+          warp-mouse-to-focus.enable = true;
+          workspace-auto-back-and-forth = true;
       };
 
       layout = {
         gaps = 10;
-        center_focused_column = "never";
-        preset_column_widths = [ 0.25 0.5 0.75 1.0 ];
-        preset_window_heights = [ 0.25 0.5 0.75 1.0 ];
-        default_column_width = {
-          proportion = 0.5;
-        };
-        focus_ring = "off";
+        center-focused-column = "never";
+        preset-column-widths = [
+         { proportion =  0.25;}
+         { proportion =  0.5;}
+         { proportion =  0.75;}
+         { proportion =  1.0;}
+        ];
+        preset-window-heights = [
+         { proportion =  0.25;}
+         { proportion =  0.5;}
+         { proportion =  0.75;}
+         { proportion =  1.0;}
+        ];
+        default-column-width = { proportion = 0.5; };
+        focus-ring.enable = false;
         border = {
           width = 1.5;
-          active_color = "#${config.lib.stylix.colors.base04}";
-          inactive_color = "#${config.lib.stylix.colors.base06}";
-          urgent_color = "#${config.lib.stylix.colors.base02}";
+          active = "#${config.lib.stylix.colors.base04}";
+          inactive = "#${config.lib.stylix.colors.base06}";
+          urgent = "#${config.lib.stylix.colors.base02}";
+        };
+
+        tab-indicator = {
+          corner-radius = 8;
         };
       };
 
-      window-rules = [
-        {
-          geometry-corner-radius = 8;
-          clip-to-geometry = true;
-        }
-      ];
+      # window-rules.*cc.matches = [
+        # {
+          # geometry-corner-radius = 8;
+          # clip-to-geometry = true;
+        # }
+      # ];
       
       # Animations
       animations = {
-        workspace-switch = {
+        workspace-switch.kind = {
           spring = {
             damping-ratio = 1.0;
             stiffness = 1000;
             epsilon = 0.0001;
           };
         };
-        window-open = {
-          duration-ms = 150;
-          curve = "ease-out-expo";
+        window-open.kind = {
+          easing = {
+            duration-ms = 150;
+            curve = "ease-out-expo";
+          };
         };
-        window-close = {
-          duration-ms = 150;
-          curve = "ease-out-quad";
+        window-close.kind = {
+          easing = {
+            duration-ms = 150;
+            curve = "ease-out-quad";
+          };
         };
-        horizontal-view-movement = {
+        horizontal-view-movement.kind = {
           spring = {
             damping-ratio = 1.0;
             stiffness = 800;
             epsilon = 0.0001;
           };
         };
-        window-movement = {
+        window-movement.kind = {
           spring = {
             damping-ratio = 1.0;
             stiffness = 800;
             epsilon = 0.0001;
           };
         };
-        window-resize = {
+        window-resize.kind = {
           spring = {
             damping-ratio = 1.0;
             stiffness = 800;
             epsilon = 0.0001;
           };
         };
-        config-notification-open-close = {
+        config-notification-open-close.kind = {
           spring = {
             damping-ratio = 0.6;
             stiffness = 1000;
             epsilon = 0.001;
           };
         };
-        screenshot-ui-open = {
-          duration-ms = 200;
-          curve = "ease-out-quad";
+        screenshot-ui-open.kind = {
+          easing = {
+            duration-ms = 200;
+            curve = "ease-out-quad";
+          };
         };
-        overview-open-close = {
+        overview-open-close.kind = {
           spring = {
             damping-ratio = 1.0;
             stiffness = 800;
@@ -117,107 +135,76 @@
       
       prefer-no-csd = true;
       hotkey-overlay.skip-at-startup = true;
-      gestures.hot-corners.off = true;
+      gestures.hot-corners.enable = true;
       
       screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
       spawn-at-startup = [
-        "waybar"
-        "swww-daemon"
-        "swww img ~/.mine/dots/wallpapers/1.png"
-        "systemctl --user start hyprpolkitagent"
+        {command = ["waybar"];}
+        {command = ["swww-daemon"];}
+        {command = ["swww img ~/.mine/dots/wallpapers/1.png"];}
+        {command = ["systemctl --user start hyprpolkitagent"];}
       ];
 
-      binds = {
+      binds = with config.lib.niri.actions; { 
+        "Mod+T".action = spawn "bash" "-c" "notify-send hello && exec kitty";
+        "Alt+E".action = spawn "thunar";
+        "Alt+T".action = spawn "kitty";
+        "Alt+Space".action = spawn "fuzzel" { repeat = false; };
+        "Alt+B".action = spawn "zen";
+        
+        "Mod+O".action = toggle-overview { repeat = false; };
+        
+        "Mod+Q".action = close-window;
+        "Mod+Shift+Q".action = quit;
+        
+        "Mod+H".action = focus-column-left;
+        "Mod+J".action = focus-window-down;
+        "Mod+K".action = focus-window-up;
+        "Mod+L".action = focus-column-right;
+        
+        "Mod+Shift+H".action = move-column-left;
+        "Mod+Shift+J".action = move-window-down;
+        "Mod+Shift+K".action = move-window-up;
+        "Mod+Shift+L".action = move-column-right;
+        
+        "Mod+BracketLeft".action = consume-or-expel-window-left;
+        "Mod+BracketRight".action = consume-or-expel-window-right;
+        
+        "Mod+Comma".action = consume-window-into-column;
+        "Mod+Period".action = expel-window-from-column;
+        
+        "Mod+R".action = switch-preset-column-width;
+        "Mod+Shift+R".action = switch-preset-window-height;
+        
+        "Mod+F".action = maximize-column;
+        "Mod+Shift+F".action = fullscreen-window;
+        "Mod+Ctrl+F".action = expand-column-to-available-width;
+        
+        "Mod+C".action = center-column;
+        "Mod+Ctrl+C".action = center-visible-columns;
+        
+        "Mod+Ctrl+H".action = set-column-width "-10%";
+        "Mod+Ctrl+L".action = set-column-width "+10%";
+        "Mod+Ctrl+K".action = set-window-height "-10%";
+        "Mod+Ctrl+J".action = set-window-height "+10%";
+        
+        "Mod+V".action = toggle-window-floating;
+        "Mod+Shift+V".action = switch-focus-between-floating-and-tiling;
+        
+        "Shift+Mod+S".action = screenshot;
+        "Ctrl+Mod+S".action = screenshot-window;
+        
+        "Mod+Escape".action = toggle-keyboard-shortcuts-inhibit { allow-inhibiting = false; };
+        
+        "Mod+Shift+P".action = power-off-monitors;
+        
+        "XF86MonBrightnessUp".action = spawn "brightnessctl" "set" "5%+";
+        "XF86MonBrightnessDown".action = spawn "brightnessctl" "set" "5%-";
 
-        "Mod+T" = { spawn = [ "bash" "-c" "notify-send hello && exec kitty" ]; };
-        "Alt+E" = { spawn = [ "thunar" ]; };
-        "Alt+T" = { spawn = [ "kitty" ]; };
-        "Alt+Space" = {
-          repeat = false;
-          spawn = [ "fuzzel" ];
-        };
-        "Alt+B" = { spawn = [ "zen" ]; };
-        
-        "Mod+D" = "focus-workspace 10";
-        
-        "Mod+O" = {
-          repeat = false;
-          action = "toggle-overview";
-        };
-        
-        "Mod+Q" = "close-window";
-        "Mod+Shift+Q" = "quit";
-        
-        "Mod+H" = "focus-column-left";
-        "Mod+J" = "focus-window-down";
-        "Mod+K" = "focus-window-up";
-        "Mod+L" = "focus-column-right";
-        
-        "Mod+Shift+H" = "move-column-left";
-        "Mod+Shift+J" = "move-window-down";
-        "Mod+Shift+K" = "move-window-up";
-        "Mod+Shift+L" = "move-column-right";
-        
-        "Mod+BracketLeft" = "consume-or-expel-window-left";
-        "Mod+BracketRight" = "consume-or-expel-window-right";
-        
-        "Mod+Comma" = "consume-window-into-column";
-        "Mod+Period" = "expel-window-from-column";
-        
-        "Mod+R" = "switch-preset-column-width";
-        "Mod+Shift+R" = "switch-preset-window-height";
-        
-        "Mod+F" = "maximize-column";
-        "Mod+Shift+F" = "fullscreen-window";
-        "Mod+Ctrl+F" = "expand-column-to-available-width";
-        
-        "Mod+C" = "center-column";
-        "Mod+Ctrl+C" = "center-visible-columns";
-        
-        "Mod+Ctrl+H" = "set-column-width -10%";
-        "Mod+Ctrl+L" = "set-column-width +10%";
-        "Mod+Ctrl+K" = "set-window-height -10%";
-        "Mod+Ctrl+J" = "set-window-height +10%";
-        
-        "Mod+V" = "toggle-window-floating";
-        "Mod+Shift+V" = "switch-focus-between-floating-and-tiling";
-        
-        "Shift+Mod+S" = "screenshot";
-        "Alt+Mod+S" = "screenshot-screen";
-        "Ctrl+Mod+S" = "screenshot-window";
-        
-        "Mod+Escape" = {
-          allow-inhibiting = false;
-          action = "toggle-keyboard-shortcuts-inhibit";
-        };
-        
-        "Mod+Shift+P" = "power-off-monitors";
-        
-        "XF86MonBrightnessUp" = {
-          allow-when-locked = true;
-          spawn = [ "brightnessctl" "set" "5%+" ];
-        };
-        "XF86MonBrightnessDown" = {
-          allow-when-locked = true;
-          spawn = [ "brightnessctl" "set" "5%-" ];
-        };
-        
-        "XF86AudioRaiseVolume" = {
-          allow-when-locked = true;
-          spawn = [ "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+" ];
-        };
-        "XF86AudioLowerVolume" = {
-          allow-when-locked = true;
-          spawn = [ "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-" ];
-        };
-        "XF86AudioMute" = {
-          allow-when-locked = true;
-          spawn = [ "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle" ];
-        };
-        "XF86AudioMicMute" = {
-          allow-when-locked = true;
-          spawn = [ "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle" ];
-        };
+        "XF86AudioRaiseVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+";
+        "XF86AudioLowerVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-";
+        "XF86AudioMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
+        "XF86AudioMicMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
       };
     };
   };
