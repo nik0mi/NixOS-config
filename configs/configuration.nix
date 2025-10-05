@@ -12,11 +12,22 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.extraOptions = ''warn-dirty = false'';
 
-  boot.loader = {
-    systemd-boot.enable = true;
+  boot.loader.grub = {
+     enable = true;
+     device = "/dev/sda";
+     useOSProber = true;
+     gfxmodeEfi = "1920x1080";
+     default = "saved";
+     extraEntries = "GRUB_SAVEDEFAULT=true";
+  };
 
-    systemd-boot.configurationLimit = 5;
-    efi.canTouchEfiVariables = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
   };
 
   services.greetd = {
@@ -29,13 +40,7 @@
     };
   };
 
-  services.xserver.videoDrivers = [ "amdgpu" ];
-
   networking.hostName = "ovce";
-  networking.wireless.iwd.enable = true;
-
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = false;
 
   security.polkit.enable = true;	
   
@@ -71,19 +76,22 @@
       packages = with pkgs; [
         #Apps
         git
+        lazygit
+        python3
+        nftables
         tmux
-        firefox
+        vesktop
         amnezia-vpn
         telegram-desktop
+        inputs.zen-browser.packages.${pkgs.system}.default
 
+        yazi # file manager
         mpv # video/audio
         qimgv # images
         xarchiver # archives forntend
         p7zip # archives backend
         termusic # music
         zathura # pdf
-        micro# text
-        helix# code editor
 
         #Utils
         impala
@@ -94,21 +102,10 @@
         brightnessctl
         hyprpolkitagent
 
-        #File Manager
-        yazi
-        xfce.thunar
-        xfce.thunar-archive-plugin
-
-        #Codestuff
-        vscode
-        nixd
-        alejandra	
-
-
         #WMstuff
         niri
-        kdlfmt
         waybar
+        wl-clipboard
         fuzzel
 
         #Terminal
@@ -128,14 +125,17 @@
   programs.firefox.enable = true;
   programs.amnezia-vpn.enable = true;
 
-  services.gvfs.enable = true;
-  programs.xfconf.enable = true;
-  services.tumbler.enable = true;
-  programs.thunar.enable = true;
-  programs.thunar.plugins = with pkgs.xfce; [thunar-archive-plugin];
-
   nixpkgs.config.allowUnfree = true;
-  
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gnome
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    config.common.default = "*";
+  };  
+
   home-manager = {
 	  extraSpecialArgs = { inherit inputs; };
 	  users = { "ovce" = import ./home.nix; };

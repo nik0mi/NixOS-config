@@ -7,6 +7,7 @@
     ../dots/mako/mako.nix
     ../dots/btop/btop.nix
     ../dots/fish/fish.nix
+    ../dots/yazi/yazi.nix
 
     ../dots/niri/niri.nix
     ../dots/fish/fish.nix
@@ -24,6 +25,8 @@
   home.stateVersion = "25.05";
   
   home.sessionVariables = {
+    DISPLAY = ":0";
+    EDITOR = "hx";
     NIXOS_OZONE_WL = "1";
     XDG_SESSION_TYPE = "wayland";
   };
