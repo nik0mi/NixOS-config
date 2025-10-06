@@ -131,13 +131,13 @@
       
       prefer-no-csd = true;
       hotkey-overlay.skip-at-startup = true;
-      gestures.hot-corners.enable = true;
+      gestures.hot-corners.enable = false;
       
       screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
       spawn-at-startup = [
         {command = ["waybar"];}
         {command = ["swww-daemon"];}
-        {command = ["swww img ~/.mine/dots/wallpapers/1.png"];}
+        {command = ["swww img ~/.mine/wallpapers/1.png"];}
         {command = ["systemctl --user start hyprpolkitagent"];}
       ];
 

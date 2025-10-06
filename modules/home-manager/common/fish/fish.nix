@@ -9,13 +9,13 @@
         body = ''
           cd ~/.mine/
           git add .
-          sudo nixos-rebuild switch -I nixos-config=~/.mine/configs/pc/configuration.nix'';
+          sudo nixos-rebuild switch --flake ~/.mine/#pc'';
       };
       laptop-nixbuild= {
         body = ''
           cd ~/.mine/
           git add .
-          sudo nixos-rebuild switch -I nixos-config=~/.mine/configs/laptop/configuration.nix'';
+          sudo nixos-rebuild switch --flake ~/.mine/#laptop'';
       };
       server = {
         body = ''
