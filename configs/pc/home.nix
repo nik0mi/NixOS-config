@@ -4,10 +4,10 @@
   imports =[
     ../../modules/home-modules.nix
         
-    ../../modules/home_manager/pc/mako/mako.nix
-    ../../modules/home_manager/pc/niri/niri.nix
-    ../../modules/home_manager/pc/fuzzel/fuzzel.nix
-    ../../modules/home_manager/pc/waybar/waybar.nix
+    ../../modules/home-manager/pc/mako/mako.nix
+    ../../modules/home-manager/pc/niri/niri.nix
+    ../../modules/home-manager/pc/fuzzel/fuzzel.nix
+    ../../modules/home-manager/pc/waybar/waybar.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

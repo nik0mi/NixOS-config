@@ -16,7 +16,7 @@
           cd ~/.mine/
           git add .
           sudo nixos-rebuild switch -I nixos-config=~/.mine/configs/laptop/configuration.nix'';
-      }
+      };
       server = {
         body = ''
           if test (count $argv) -lt 2

@@ -2,10 +2,10 @@
 
 {
   imports = [
-    ./home_manager/helix/helix.nix
-    ./home_manager/btop/btop.nix
-    ./home_manager/fish/fish.nix
-    ./home_manager/yazi/yazi.nix
-    ./home_manager/git/git.nix
+    ./home-manager/common/helix/helix.nix
+    ./home-manager/common/btop/btop.nix
+    ./home-manager/common/fish/fish.nix
+    ./home-manager/common/yazi/yazi.nix
+    ./home-manager/common/git/git.nix
   ];
 }

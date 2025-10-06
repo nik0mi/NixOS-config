@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   programs.fish.enable = true;
   programs.amnezia-vpn.enable = true;
