@@ -15,11 +15,14 @@
   boot.loader.grub = {
      enable = true;
      device = "/dev/sda";
+
      useOSProber = true;
-     gfxmodeEfi = "1920x1080,auto";
-     gfxpayloadEfi = "keep";
      default = "saved";
      extraEntries = "GRUB_SAVEDEFAULT=true";
+
+     gfxmodeEfi = "1920x1080";
+     gfxmodeBios = "1920x1080";
+     gfxpayloadBios = "keep";
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -44,6 +47,15 @@
 
   networking.hostName = "ovce";
 
+  # Replace NetworkManager with systemd-networkd and systemd-resolved
+  networking.useNetworkd = true;
+  systemd.network.enable = true;
+  services.resolved.enable = true; # Integrated DNS resolver
+
+  # Disable other network managers to avoid conflicts
+  networking.networkmanager.enable = false;
+  networking.dhcpcd.enable = false;
+  
   security.polkit.enable = true;	
   
   time.timeZone = "Asia/Tomsk";

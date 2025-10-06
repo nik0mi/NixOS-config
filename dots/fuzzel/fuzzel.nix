@@ -1,4 +1,4 @@
-{ lib,... } :
+{ lib, config, ... } :
 
 {
   stylix.targets.fuzzel.enable = true;
@@ -8,13 +8,11 @@
     
     settings = {
       border = {
-        radius = 0;
-        width = 3;
+        radius = 8;
+        width = 2;
       };
 
-      colors = {
-        border = lib.mkForce "c7d5c0ff";
-      };
+      colors = { border = lib.mkForce "${config.lib.stylix.colors.base04}FF"; };
       
       main = lib.mkForce {
         font = "JetBrainsMonoNFM:weight=semibold:size=12";
