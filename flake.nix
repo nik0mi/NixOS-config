@@ -9,23 +9,32 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs"; 
     };
-   
-    stylix.url = "github:danth/stylix";
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+   
+    stylix.url = "github:danth/stylix";
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs = { self, nixpkgs, ... } @ inputs: {
-    nixosConfigurations.ovce = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.pc = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
-        ./configs/configuration.nix
-        inputs.home-manager.nixosModules.default
+        ./configs/pc/configuration.nix
         
+        inputs.home-manager.nixosModules.default
+        inputs.stylix.nixosModules.stylix
+      ];
+    };
+    nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./configs/laptop/configuration.nix
+        
+        inputs.home-manager.nixosModules.default
         inputs.stylix.nixosModules.stylix
       ];
     };
