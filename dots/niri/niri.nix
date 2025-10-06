@@ -2,19 +2,11 @@
 
 {
   imports = [ inputs.niri.homeModules.niri ];
-  
   nixpkgs.overlays = [ inputs.niri.overlays.niri ];
-  
-  programs.niri.package = pkgs.niri-stable;
-#   home.file = {
-#     "/.config/niri" = {
-#       source = ../niri;
-#       recursive = true;
-#     };
-#   };
 
   programs.niri = {
     enable = true;
+    package = pkgs.niri-stable;
 
     settings = {
 
@@ -51,23 +43,27 @@
         default-column-width = { proportion = 0.5; };
         focus-ring.enable = false;
         border = {
+          enable = true;
           width = 1.5;
-          active = "#${config.lib.stylix.colors.base04}";
-          inactive = "#${config.lib.stylix.colors.base06}";
-          urgent = "#${config.lib.stylix.colors.base02}";
-        };
-
-        tab-indicator = {
-          corner-radius = 8;
+          active.color = "#${config.lib.stylix.colors.base06}";
+          inactive.color = "#${config.lib.stylix.colors.base04}";
+          urgent.color = "#${config.lib.stylix.colors.base02}";
         };
       };
 
-      # window-rules.*cc.matches = [
-        # {
-          # geometry-corner-radius = 8;
-          # clip-to-geometry = true;
-        # }
-      # ];
+      window-rules = [
+        {
+          geometry-corner-radius = let
+            radius = 8.0;
+          in {
+            bottom-left = radius;
+            bottom-right = radius;
+            top-left = radius;
+            top-right = radius;
+          };
+          clip-to-geometry = true;
+        }
+      ];      
       
       # Animations
       animations = {
@@ -149,10 +145,10 @@
         "Mod+T".action = spawn "bash" "-c" "notify-send hello && exec kitty";
         "Alt+E".action = spawn "thunar";
         "Alt+T".action = spawn "kitty";
-        "Alt+Space".action = spawn "fuzzel" { repeat = false; };
+        "Alt+Space".action = spawn "fuzzel";
         "Alt+B".action = spawn "zen";
         
-        "Mod+O".action = toggle-overview { repeat = false; };
+        "Mod+O".action = toggle-overview;
         
         "Mod+Q".action = close-window;
         "Mod+Shift+Q".action = quit;
@@ -193,8 +189,6 @@
         
         "Shift+Mod+S".action = screenshot;
         "Ctrl+Mod+S".action = screenshot-window;
-        
-        "Mod+Escape".action = toggle-keyboard-shortcuts-inhibit { allow-inhibiting = false; };
         
         "Mod+Shift+P".action = power-off-monitors;
         
