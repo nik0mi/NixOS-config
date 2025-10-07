@@ -142,8 +142,7 @@
       ];
 
       binds = with config.lib.niri.actions; { 
-        "Mod+T".action = spawn "bash" "-c" "notify-send hello && exec kitty";
-        "Alt+E".action = spawn "thunar";
+        "Alt+E".action = spawn "kitty" "yazi";
         "Alt+T".action = spawn "kitty";
         "Alt+Space".action = spawn "fuzzel";
         "Alt+B".action = spawn "zen";

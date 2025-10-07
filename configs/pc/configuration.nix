@@ -1,28 +1,30 @@
 { pkgs, inputs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
+  imports = [
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
 
-      ../../modules/nix-modules.nix
-    ];
+    ../../modules/nix-modules.nix
+  ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nix.extraOptions = ''warn-dirty = false'';
 
   boot.loader.grub = {
-     enable = true;
-     device = "/dev/sda";
+    enable = true;
+    device = "/dev/sda";
 
-     useOSProber = true;
-     default = "saved";
-     extraEntries = "GRUB_SAVEDEFAULT=true";
+    useOSProber = true;
+    default = "saved";
+    extraEntries = "GRUB_SAVEDEFAULT=true";
 
-     gfxmodeEfi = "1920x1080";
-     gfxmodeBios = "1920x1080";
-     gfxpayloadBios = "keep";
+    gfxmodeEfi = "1920x1080";
+    gfxmodeBios = "1920x1080";
+    gfxpayloadBios = "keep";
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -49,13 +51,13 @@
 
   networking.useNetworkd = true;
   systemd.network.enable = true;
-  services.resolved.enable = true; 
+  services.resolved.enable = true;
 
   networking.networkmanager.enable = false;
   networking.dhcpcd.enable = false;
-  
-  security.polkit.enable = true;	
-  
+
+  security.polkit.enable = true;
+
   time.timeZone = "Asia/Tomsk";
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -84,7 +86,10 @@
       isNormalUser = true;
       description = "ovce";
       shell = pkgs.fish;
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
       packages = with pkgs; [
         python3
         nftables
@@ -92,21 +97,42 @@
       ];
     };
   };
- 
-  nixpkgs.config.allowUnfree = true;
 
+  nixpkgs.config.allowUnfree = true;
+  programs.xwayland.enable = true;
+  
   xdg.portal = {
     enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gnome
-      pkgs.xdg-desktop-portal-gtk
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome 
     ];
-    config.common.default = "*";
-  };  
+    config = {
+      common.default = [ "gtk" ];
+      niri = {
+        default = [
+          "gtk"
+          "gnome"
+        ];
+        "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
+        "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
+      };
+    };
+  };
+
+  # security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
 
   home-manager = {
-	  extraSpecialArgs = { inherit inputs; };
-	  users = { "ovce" = import ./home.nix; };
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "ovce" = import ./home.nix;
+    };
   };
 
   system.stateVersion = "25.05";

@@ -12,7 +12,8 @@
   stylix.icons = {
     enable = true;
     package = pkgs.nordzy-icon-theme;
-    dark = "Nordzy-icon";
+    dark = "Nordzy-green";
+    light = "Nordzy-green";
   };
 
   stylix.base16Scheme = {
