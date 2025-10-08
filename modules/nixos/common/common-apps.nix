@@ -3,7 +3,7 @@
   programs.fish.enable = true;
   programs.amnezia-vpn.enable = true;
 
-  services.udisks2.enable = true;
+  services.gvfs.enable = true;
   environment.systemPackages = with pkgs; [
     #Apps
     git
@@ -16,6 +16,7 @@
     yazi # file manager
     mpv # video/audio
     qimgv # images
+    imagemagick
     # xarchiver # archives forntend
     # p7zip # archives backend
     termusic # music
@@ -27,6 +28,7 @@
     #Utils
     mako
     swww
+    nushell
     glib
     gvfs
     mediainfo
