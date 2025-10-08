@@ -41,7 +41,7 @@
          { proportion =  1.0;}
         ];
         default-column-width = { proportion = 0.5; };
-        focus-ring.enable = false;
+       focus-ring.enable = false;
         border = {
           enable = true;
           width = 1.5;
@@ -141,8 +141,13 @@
         {command = ["systemctl --user start hyprpolkitagent"];}
       ];
 
-      binds = with config.lib.niri.actions; { 
-        "Alt+E".action = spawn "sh" "-c" "yazi";
+      binds = with config.lib.niri.actions;
+      let
+         sh = spawn "kitty" "-e" "fish" "-i" "-c";
+      in { 
+        "Alt+E".action = sh "yazi";
+        "Alt+M".action = sh "termusic";
+
         "Alt+T".action = spawn "kitty";
         "Alt+Space".action = spawn "fuzzel";
         "Alt+B".action = spawn "zen";
