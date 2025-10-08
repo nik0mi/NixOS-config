@@ -95,6 +95,7 @@
         pinta
         nftables
         vesktop
+        wget
       ];
     };
   };

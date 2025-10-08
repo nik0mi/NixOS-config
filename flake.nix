@@ -14,6 +14,8 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zapret-discord-youtube.url = "github:kartavkun/zapret-discord-youtube";
    
     stylix.url = "github:danth/stylix";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
@@ -27,6 +29,14 @@
         
         inputs.home-manager.nixosModules.default
         inputs.stylix.nixosModules.stylix
+
+        inputs.zapret-discord-youtube.nixosModules.default
+        {
+          services.zapret-discord-youtube = {
+            enable = true;
+            config = "general(ALT2)";
+          };
+        }
       ];
     };
     nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {

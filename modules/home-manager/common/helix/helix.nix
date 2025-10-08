@@ -39,10 +39,11 @@
 
          "C-y"= [
             ":sh rm -f /tmp/unique-file"
-            ":insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file"
-            ":insert-output echo \\\"\\x1b[?1049h\\x1b[?2004h\\\" > /dev/tty"
+            ":insert-output yazi --chooser-file=/tmp/unique-file"
+            ":insert-output echo \"\x1b[?1049h\x1b[?2004h\" > /dev/tty"
             ":open %sh{cat /tmp/unique-file}"
-            ":redraw" ];
+            ":redraw"
+            ":set mouse false"];
        };
     };
   };

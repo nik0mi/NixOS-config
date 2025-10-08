@@ -11,6 +11,8 @@
       border-color = lib.mkForce "#${config.lib.stylix.colors.base06}FF";
       border-radius = 8;
       border-size = 2;
+      ignore-timeout = 1;
+      default-timeout = 3000;
     };
 
     extraConfig = ''
