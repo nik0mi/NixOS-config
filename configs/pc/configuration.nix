@@ -5,7 +5,7 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
 
-    ../../modules/nix-modules.nix
+    ../../modules/nixos/pc/nix-modules-pc.nix
   ];
 
   nix.settings.experimental-features = [
@@ -92,6 +92,7 @@
       ];
       packages = with pkgs; [
         python3
+        pinta
         nftables
         vesktop
       ];

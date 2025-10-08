@@ -3,6 +3,7 @@
   programs.fish.enable = true;
   programs.amnezia-vpn.enable = true;
 
+  services.udisks2.enable = true;
   environment.systemPackages = with pkgs; [
     #Apps
     git
@@ -15,14 +16,20 @@
     yazi # file manager
     mpv # video/audio
     qimgv # images
-    xarchiver # archives forntend
-    p7zip # archives backend
+    # xarchiver # archives forntend
+    # p7zip # archives backend
     termusic # music
     zathura # pdf
+    ouch # archives
+    blueberry
+    linssid
 
     #Utils
     mako
     swww
+    glib
+    gvfs
+    mediainfo
     nwg-look
     hyprpolkitagent
 
@@ -38,6 +45,5 @@
     #Terminal-utils
     btop
     fastfetch
-    auto-cpufreq
   ];
 }

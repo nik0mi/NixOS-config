@@ -2,12 +2,7 @@
 
 {
   imports =[
-    ../../modules/home-modules.nix
-        
-    ../../modules/home-manager/laptop/mako/mako.nix
-    ../../modules/home-manager/laptop/niri/niri.nix
-    ../../modules/home-manager/laptop/fuzzel/fuzzel.nix
-    ../../modules/home-manager/laptop/waybar/waybar.nix
+    ../../modules/home-manager/pc/home-manager-modules-pc.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

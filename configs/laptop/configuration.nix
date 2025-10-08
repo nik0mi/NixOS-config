@@ -6,7 +6,7 @@
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
 
-      ../../modules/nix-modules.nix
+      ../../modules/nixos/laptop/nix-modules-laptop.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

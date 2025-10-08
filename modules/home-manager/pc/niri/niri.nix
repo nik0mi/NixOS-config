@@ -142,7 +142,7 @@
       ];
 
       binds = with config.lib.niri.actions; { 
-        "Alt+E".action = spawn "kitty" "yazi";
+        "Alt+E".action = spawn "sh" "-c" "yazi";
         "Alt+T".action = spawn "kitty";
         "Alt+Space".action = spawn "fuzzel";
         "Alt+B".action = spawn "zen";
