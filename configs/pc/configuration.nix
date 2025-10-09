@@ -79,7 +79,6 @@
     variant = "";
   };
   services.dbus.enable = true;
-  services.libinput.touchpad.disableWhileTyping = true;
 
   users.users = {
     ovce = {
@@ -93,9 +92,10 @@
       packages = with pkgs; [
         python3
         pinta
+        ungoogled-chromium
+        rmpc
         nftables
         vesktop
-        wget
       ];
     };
   };

@@ -152,6 +152,8 @@
         "Alt+Space".action = spawn "fuzzel";
         "Alt+B".action = spawn "zen";
         
+        "Alt+P".action = spawn "hyprpicker" "-a";
+
         "Mod+O".action = toggle-overview;
         
         "Mod+Q".action = close-window;
