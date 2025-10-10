@@ -39,11 +39,9 @@
 
   services.greetd = {
     enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --asterisks --remember --time --cmd niri-session";
-        user = "greeter";
-      };
+    settings.default_session = {
+      command = "${pkgs.tuigreet}/bin/tuigreet --asterisks --remember --time --cmd niri-session";
+      user = "greeter";
     };
   };
 
@@ -89,25 +87,27 @@
         "networkmanager"
         "wheel"
       ];
-      packages = with pkgs; [
-        python3
-        pinta
-        ungoogled-chromium
-        rmpc
-        nftables
-        vesktop
-      ];
     };
   };
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+  };
+
   nixpkgs.config.allowUnfree = true;
-  programs.xwayland.enable = true;
-  
+
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-gnome 
+      xdg-desktop-portal-gnome
     ];
     config = {
       common.default = [ "gtk" ];
@@ -122,7 +122,6 @@
     };
   };
 
-  # security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;

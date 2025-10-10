@@ -6,16 +6,6 @@
 
   # SERVICES
   services.gvfs.enable = true;
-  services.mpd = {
-    enable = true;
-    musicDirectory = "/$HOME/Music";
-    extraConfig = ''
-      audio_output {
-        type "pipewire"
-        name "My PipeWire Output"
-      }
-    '';
-  };
 
   # PROGRAMS APPS
   environment.systemPackages = with pkgs; [
@@ -46,6 +36,7 @@
     swww
     nushell
     glib
+    mpd
     mediainfo
     nwg-look
 
