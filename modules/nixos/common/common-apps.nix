@@ -27,7 +27,6 @@
     ouch # archives
     blueberry # bluetooth
     linssid # wifi
-    gparted # disk manager
     pavucontrol # audio
     hyprpicker # color picker
 

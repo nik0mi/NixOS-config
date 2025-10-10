@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  nixpkgs.config.allowUnfree = true;
+ nixpkgs.config.allowUnfree = true;
   users.users.ovce.packages = with pkgs; [
     libreoffice
     nftables
