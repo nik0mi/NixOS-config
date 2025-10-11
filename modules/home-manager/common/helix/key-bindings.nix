@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.helix.settings = {
@@ -11,13 +11,10 @@
       ];
 
       "C-y" = [
-        ":sh rm -f /tmp/unique-file"
-        ":insert-output yazi --chooser-file=/tmp/unique-file"
-        ":insert-output echo \"\x1b[?1049h\x1b[?2004h\" > /dev/tty"
-        ":open %sh{cat /tmp/unique-file}"
-        ":redraw"
-        ":set mouse false"
+        ":sh zellij run --floating -n 'yazi picker' -- ./yazi-picker.fish"
       ];
+
+      "C-t" = ":sh zellij action new-pane -d down";
     };
   };
 }

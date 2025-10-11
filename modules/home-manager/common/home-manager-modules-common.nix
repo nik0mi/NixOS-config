@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./mpd/mpd.nix
     ./rmpc/rmpc.nix
     ./helix/helix.nix
     ./btop/btop.nix

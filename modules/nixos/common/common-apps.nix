@@ -12,8 +12,8 @@
     #Apps
     git
     lazygit
-    tmux
     amnezia-vpn
+    zellij
     telegram-desktop
     inputs.zen-browser.packages.${pkgs.system}.default
 

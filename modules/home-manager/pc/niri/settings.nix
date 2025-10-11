@@ -199,6 +199,10 @@
         "XF86MonBrightnessUp".action = spawn "brightnessctl" "set" "5%+";
         "XF86MonBrightnessDown".action = spawn "brightnessctl" "set" "5%-";
 
+        "XF86AudioPlay".action = spawn "mpc" "toggle";
+        "XF86AudioPrev".action = spawn "mpc" "next";
+        "XF86AudioNext".action = spawn "mpc" "prev";
+
         "XF86AudioRaiseVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+";
         "XF86AudioLowerVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-";
         "XF86AudioMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";

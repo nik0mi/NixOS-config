@@ -1,7 +1,9 @@
 { ... }:
 
 {
-  programs.waybar.style = ''
+  programs.waybar.style =
+  # css
+  ''
     * {
       font-family: JetBrainsMono Nerd Font;
       font-weight: bold;
@@ -34,6 +36,7 @@
     #custom-power,
     #custom-restart,
     #custom-suspend,
+    #mpd,
     #clock,
     #tray,
     #language,
@@ -50,6 +53,30 @@
       color: @base04;
     }
 
+    #mpd {
+      background-color: @base00;
+      padding: 0 10px; 
+      margin: 5px 100px; 
+      border: 2px solid @base05;
+      border-radius: 8px; 
+      color: @base04;
+      font-family: JetBrainsMono Nerd Font;
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+
+    #mpd.disconnected:hover,
+    #mpd.paused:hover,
+    #mpd.stopped:hover,
+    #mpd.disconnected,
+    #mpd.paused,
+    #mpd.stopped {
+      background-color: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
+
     .modules-left {
       margin: 0 -10 0 -10;
     }
@@ -61,6 +88,7 @@
     #custom-power:hover,
     #custom-restart:hover,
     #custom-suspend:hover,
+    #mpd:hover,
     #battery:hover,
     #network:hover,
     #bluetooth:hover,

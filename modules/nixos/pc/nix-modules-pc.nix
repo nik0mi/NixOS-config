@@ -3,7 +3,6 @@
 {
   imports =
   [
-    ./mpd.nix
     ./stylix.nix
     ./pc-pkgs.nix
     ./grub.nix

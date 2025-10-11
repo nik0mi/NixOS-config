@@ -17,6 +17,7 @@
       "bluetooth"
       "wireplumber"
       "backlight"
+      "mpd"
     ];
     "modules-right" = [
       "tray"
@@ -27,6 +28,10 @@
       "custom/power"
     ];
 
+    "mpd" = {
+      "format" = "{title:.24}";
+      "tooltip" = false;
+    };
     "backlight" = {
         "device" = "intel_backlight";
         "format" = "{icon}   {percent}";
@@ -110,8 +115,6 @@
         "format" = "{icon}   {volume}";
         "format-muted" = "  Muted";
         "format-icons" = { 
-            "headset" = "";
-            "headphone" = "";
             "default" = ["" "" "" ""];
         };
         "justify" = "center";
