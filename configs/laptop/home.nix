@@ -13,7 +13,7 @@
   home.stateVersion = "25.05";
   
   home.sessionVariables = {
-    EDITOR = "hx";
+    EDITOR = "zhx";
     NIXOS_OZONE_WL = "1";
     XDG_SESSION_TYPE = "wayland";
   };

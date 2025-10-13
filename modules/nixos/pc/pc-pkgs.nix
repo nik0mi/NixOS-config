@@ -1,15 +1,16 @@
 { pkgs, ... }:
 
 {
- services.logmein-hamachi.enable = true;
- nixpkgs.config.allowUnfree = true;
- users.users.ovce.packages = with pkgs; [
+  services.logmein-hamachi.enable = true;
+  nixpkgs.config.allowUnfree = true;
+  users.users.ovce.packages = with pkgs; [
     #UTILS
     python3
     nftables
 
     #APPS
     pinta
+    godot-mono
     usbimager
     libreoffice
     ungoogled-chromium
