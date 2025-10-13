@@ -17,20 +17,20 @@
     telegram-desktop
     inputs.zen-browser.packages.${pkgs.system}.default
 
-    ymuse
     yazi # file manager
     mpv # video/audio
     qimgv # images
     termusic # music
-    rmpc # music
     zathura # pdf
     ouch # archives
     blueberry # bluetooth
     linssid # wifi
     pavucontrol # audio
     hyprpicker # color picker
+    gparted # disks
 
     #Utils
+    ripdrag
     mako
     swww
     nushell

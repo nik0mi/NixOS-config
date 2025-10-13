@@ -4,14 +4,21 @@
  services.logmein-hamachi.enable = true;
  nixpkgs.config.allowUnfree = true;
  users.users.ovce.packages = with pkgs; [
-    libreoffice
+    #UTILS
+    python3
     nftables
+
+    #APPS
+    pinta
+    usbimager
+    libreoffice
+    ungoogled-chromium
+
     haguichi
     logmein-hamachi
-    pinta
-    python3
-    rmpc
-    ungoogled-chromium
+
+    #GAMING
     vesktop
+    osu-lazer-bin
   ];
 }

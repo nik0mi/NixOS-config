@@ -55,23 +55,22 @@
 
     #mpd {
       background-color: @base00;
-      padding: 0 10px; 
-      margin: 5px 100px; 
+      padding: 0 20px;
+      margin: 5 70px 5 60px;
       border: 2px solid @base05;
-      border-radius: 8px; 
+      border-radius: 8px;
       color: @base04;
       font-family: JetBrainsMono Nerd Font;
       font-weight: bold;
       font-size: 17px;
     }
 
-
-    #mpd.disconnected:hover,
     #mpd.paused:hover,
     #mpd.stopped:hover,
-    #mpd.disconnected,
+    #mpd.disconnected:hover,
     #mpd.paused,
-    #mpd.stopped {
+    #mpd.stopped,
+    #mpd.disconnected{
       background-color: transparent;
       border-color: transparent;
       color: transparent;

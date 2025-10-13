@@ -29,8 +29,10 @@
     ];
 
     "mpd" = {
-      "format" = "{title:.24}";
+      "format" = "{title:.30}";
       "tooltip" = false;
+      "on-click" = "mpc prev";
+      "on-click-right" = "mpc next";
     };
     "backlight" = {
         "device" = "intel_backlight";

@@ -3,7 +3,7 @@
 {
   imports = [
     ./mpd/mpd.nix
-    ./rmpc/rmpc.nix
+    ./zellij/zellij.nix
     ./helix/helix.nix
     ./btop/btop.nix
     ./fish/fish.nix

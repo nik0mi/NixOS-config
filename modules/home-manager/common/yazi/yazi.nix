@@ -24,6 +24,10 @@
     keymap = {
       mgr.prepend_keymap = [
         {
+          on = ["<C-n>"];
+          run = "shell 'ripdrag \"$@\" -x 2>/dev/null &' --confirm";
+        }
+        {
           on = [
             "g"
             "m"

@@ -6,6 +6,5 @@
     ./key-bindings.nix
     ./settings.nix
   ];
-
-  programs.helix.enable = true;
+	programs.helix.enable = true;
 }

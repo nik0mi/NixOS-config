@@ -1,4 +1,4 @@
-{ ... } :
+{ ... }:
 
 {
   home.file.".local/bin/server.sh" = {
@@ -9,21 +9,27 @@
   programs.fish = {
     enable = true;
     interactiveShellInit = ''set fish_greeting'';
+    shellAliases = {
+      zhx = "zellij --layout helix";
+    };
     functions = {
-      nixbuild = { 
-        body = ''
-          cd ~/.mine/
-          git add .
-          sudo nixos-rebuild switch --flake ~/.mine/#pc'';
+      nixbuild = {
+        body =
+          #bash
+          ''
+            cd ~/.mine/
+            git add .
+            sudo nixos-rebuild switch --flake ~/.mine/#pc'';
       };
-      laptop-nixbuild= {
-        body = ''
-          cd ~/.mine/
-          git add .
-          sudo nixos-rebuild switch --flake ~/.mine/#laptop'';
+      laptop-nixbuild = {
+        body =
+          #bash
+          ''
+            cd ~/.mine/
+            git add .
+            sudo nixos-rebuild switch --flake ~/.mine/#laptop'';
       };
       server = ''server.sh $argv'';
     };
-  }; 
+  };
 }
-
