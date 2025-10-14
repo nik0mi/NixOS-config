@@ -10,7 +10,6 @@
 
     #APPS
     pinta
-    godot-mono
     usbimager
     libreoffice
     ungoogled-chromium

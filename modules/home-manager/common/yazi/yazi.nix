@@ -20,14 +20,11 @@
           }
         ];
       };
-      # Create the rule to use the opener for .osx files
       open.rules = [
-        # ... your existing rules can stay here ...
         {
           name = "*.osz";
           use = [ "osu_game" ];
         }
-        # The fallback rule is likely already defined by Yazi itself
       ];
 
       opener.extract = [
