@@ -2,15 +2,15 @@
 
 {
   programs.helix.settings = {
-    language-server.godot = {
-      command = "nc";
-      args = ["127.0.0.1" "6005"];
-    };
+#    language-server.godot = {
+#      command = "nc";
+#      args = ["127.0.0.1" "6005"];
+#    };
 
-    language = {
-      name = "gdscript";
-      language-servers = ["godot"];
-    };
+#    language = {
+#      name = "gdscript";
+#      language-servers = ["godot"];
+#    };
   };
   home.packages = with pkgs; [
    #JSON

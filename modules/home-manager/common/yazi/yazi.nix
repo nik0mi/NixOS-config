@@ -10,13 +10,41 @@
 
     initLua = ./init.lua;
 
+    settings = {
+      opener = {
+        "osu_game" = [
+          {
+            run = "osu! \"$@\"";
+            for = "unix";
+            desc = "Open with osu!";
+          }
+        ];
+      };
+      # Create the rule to use the opener for .osx files
+      open.rules = [
+        # ... your existing rules can stay here ...
+        {
+          name = "*.osz";
+          use = [ "osu_game" ];
+        }
+        # The fallback rule is likely already defined by Yazi itself
+      ];
+
+      opener.extract = [
+        {
+          run = "ouch d -y \"$@\"";
+          desc = "Extract here with ouch";
+          for = "unix";
+        }
+      ];
+    };
+
     plugins = {
       "chmod" = pkgs.yaziPlugins.chmod;
       "sudo" = pkgs.yaziPlugins.sudo;
       "mediainfo" = pkgs.yaziPlugins.mediainfo;
       "ouch" = pkgs.yaziPlugins.ouch;
       "full-border" = pkgs.yaziPlugins.full-border;
-      "smart-enter" = pkgs.yaziPlugins.smart-enter;
       "smart-paste" = pkgs.yaziPlugins.smart-paste;
 
       "gvfs" = ./plugins/gvfs.yazi;
@@ -44,13 +72,6 @@
           ];
           run = "cd /run/media/ovce";
           desc = "Go to USB-drives";
-        }
-
-        # smart-enter plugin
-        {
-          on = [ "p" ];
-          run = "plugin smart-paste";
-          desc = "Paste into the hovered directory or CWD";
         }
 
         # smart-paste plugin
@@ -298,23 +319,6 @@
         {
           name = "/run/media/ovce/**/*";
           run = "noop";
-        }
-      ];
-      opener.text = [
-        {
-          run = "hx \"$@\"";
-        }
-      ];
-      opener.editor = [
-        {
-          run = "hx \"$@\"";
-        }
-      ];
-      opener.extract = [
-        {
-          run = "ouch d -y \"$@\"";
-          desc = "Extract here with ouch";
-          for = "unix";
         }
       ];
     };

@@ -3,7 +3,7 @@
 {
   boot.loader.grub = {
     enable = true;
-    device = "/dev/sdc";
+    device = "/dev/sda";
 
     useOSProber = true;
     default = "saved";

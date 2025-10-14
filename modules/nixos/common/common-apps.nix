@@ -30,7 +30,6 @@
     gparted # disks
 
     #Utils
-    ripdrag
     mako
     swww
     nushell
