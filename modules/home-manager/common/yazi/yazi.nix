@@ -196,6 +196,13 @@
           for = "unix";
         }
       ];
+      opener.edit = [
+        {
+          run = "zellij --layout helix";
+          block = true;
+          desc = "Helix + Zellij setup ";
+        }
+      ];
 
       open.prepend_rules = [
         {
