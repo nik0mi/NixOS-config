@@ -11,9 +11,8 @@
 
   stylix.icons = {
     enable = true;
-    package = pkgs.nordzy-icon-theme;
-    dark = "Nordzy-green";
-    light = "Nordzy-green";
+    package = pkgs.papirus-icon-theme;
+    dark = "Papirus-Dark";
   };
 
   stylix.base16Scheme = {

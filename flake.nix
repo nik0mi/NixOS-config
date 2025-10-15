@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOs/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOs/nixpkgs/nixos-25.05";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -20,11 +21,15 @@
     zapret-discord-youtube.url = "github:kartavkun/zapret-discord-youtube";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs =
+    { self, nixpkgs, ... }@inputs:
     {
       # PC
       nixosConfigurations.pc = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = {
+          inherit inputs;
+          pkgs-stable = nixpkgs.unstable.legacePackages.x86_64-linux;
+        };
         modules = [
           ./configs/pc/configuration.nix
 
@@ -51,5 +56,5 @@
           inputs.stylix.nixosModules.stylix
         ];
       };
-  };
+    };
 }

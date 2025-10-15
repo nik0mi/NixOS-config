@@ -10,39 +10,12 @@
 
     initLua = ./init.lua;
 
-    settings = {
-      opener = {
-        "osu_game" = [
-          {
-            run = "osu! \"$@\"";
-            for = "unix";
-            desc = "Open with osu!";
-          }
-        ];
-      };
-      open.rules = [
-        {
-          name = "*.osz";
-          use = [ "osu_game" ];
-        }
-      ];
-
-      opener.extract = [
-        {
-          run = "ouch d -y \"$@\"";
-          desc = "Extract here with ouch";
-          for = "unix";
-        }
-      ];
-    };
-
     plugins = {
       "chmod" = pkgs.yaziPlugins.chmod;
       "sudo" = pkgs.yaziPlugins.sudo;
       "mediainfo" = pkgs.yaziPlugins.mediainfo;
       "ouch" = pkgs.yaziPlugins.ouch;
       "full-border" = pkgs.yaziPlugins.full-border;
-      "smart-paste" = pkgs.yaziPlugins.smart-paste;
 
       "gvfs" = ./plugins/gvfs.yazi;
       "copy-file-contents" = ./plugins/copy-file-contents.yazi;
@@ -69,13 +42,6 @@
           ];
           run = "cd /run/media/ovce";
           desc = "Go to USB-drives";
-        }
-
-        # smart-paste plugin
-        {
-          on = "l";
-          run = "plugin smart-enter";
-          desc = "Enter the child directory, or open the file";
         }
 
         # chmod plugin
@@ -223,6 +189,37 @@
     };
 
     settings = {
+      opener.extract = [
+        {
+          run = "ouch d -y \"$@\"";
+          desc = "Extract here with ouch";
+          for = "unix";
+        }
+      ];
+
+      open.prepend_rules = [
+        {
+          mime = "application/{,g}zip";
+          use = [ "extract" ];
+        }
+        {
+          mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}";
+          use = [ "extract" ];
+        }
+        {
+          name = "*.osz";
+          use = [ "osu_game" ];
+        }
+      ];
+
+      opener."osu_game" = [
+        {
+          run = "osu! \"$@\"";
+          for = "unix";
+          desc = "Open with osu!";
+        }
+      ];
+
       plugin.prepend_preloaders = [
         {
           mime = "{audio,video,image}/*";

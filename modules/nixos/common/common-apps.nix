@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, pkgs-stable, inputs, ... }:
 {
   # PROGRAMS
   programs.fish.enable = true;
@@ -8,6 +8,8 @@
   services.gvfs.enable = true;
 
   # PROGRAMS APPS
+
+  programs.yazi.package = pkgs-stable.yazi; # file manager
   environment.systemPackages = with pkgs; [
     #Apps
     git
@@ -17,17 +19,14 @@
     telegram-desktop
     inputs.zen-browser.packages.${pkgs.system}.default
 
-    yazi # file manager
     mpv # video/audio
     qimgv # images
     termusic # music
     zathura # pdf
     ouch # archives
-    blueberry # bluetooth
-    linssid # wifi
-    pavucontrol # audio
     hyprpicker # color picker
     gparted # disks
+    better-control# wifi / bluetooth / audio / display
 
     #Utils
     mako

@@ -10,6 +10,8 @@
 
     #APPS
     pinta
+    godot-mono
+    vscode
     usbimager
     libreoffice
     ungoogled-chromium
@@ -20,5 +22,7 @@
     #GAMING
     vesktop
     osu-lazer-bin
+
+    gruvbox-plus-icons
   ];
 }
