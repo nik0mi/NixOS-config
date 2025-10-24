@@ -191,8 +191,7 @@
         "Mod+V".action = toggle-window-floating;
         "Mod+Shift+V".action = switch-focus-between-floating-and-tiling;
 
-        "Shift+Mod+S".action = screenshot;
-        "Ctrl+Mod+S".action = screenshot-window;
+        "Shift+Mod+S".action = spawn "flameshot" "gui";
 
         "Mod+Shift+P".action = power-off-monitors;
 

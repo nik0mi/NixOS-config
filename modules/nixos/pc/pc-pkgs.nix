@@ -9,8 +9,8 @@
     nftables
 
     #APPS
-    pinta
     godot-mono
+    gimp
     vscode
     usbimager
     libreoffice
@@ -23,6 +23,8 @@
     vesktop
     osu-lazer-bin
 
+    #OTHER
+    orca-slicer
     gruvbox-plus-icons
   ];
 }
