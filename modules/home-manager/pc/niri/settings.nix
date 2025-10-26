@@ -191,7 +191,8 @@
         "Mod+V".action = toggle-window-floating;
         "Mod+Shift+V".action = switch-focus-between-floating-and-tiling;
 
-        "Shift+Mod+S".action = spawn "flameshot" "gui";
+        "Alt+Mod+S".action = spawn-sh "grim -g \"$(slurp)\" -t ppm - | satty --filename - --output-filename ~/Downloads/$(date '+%Y%m%d-%H:%M:%S').png";
+        "Shift+Mod+S".action = screenshot { show-pointer = false;};
 
         "Mod+Shift+P".action = power-off-monitors;
 

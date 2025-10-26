@@ -16,5 +16,7 @@
     cursor-shape.select = "bar";
 
     bufferline = "multiple";
+
+    auto-save.after-delay.enable = true;
   };
 }

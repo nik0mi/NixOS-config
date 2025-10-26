@@ -60,14 +60,10 @@
         ];
 
         rules = [
-            { mime = "image/*"; use = "qimgv"; }
-            { name = "*.jpg"; use = "qimgv"; }
-            { name = "*.jpeg"; use = "qimgv"; }
-            { name = "*.png"; use = "qimgv"; }
-            { name = "*.gif"; use = "qimgv"; }
-            { name = "*.webp"; use = "qimgv"; }
-            { name = "*.bmp"; use = "qimgv"; }
-            { name = "*.svg"; use = "qimgv"; }
+          {
+            mime = "image/*";
+            use = "qimgv";
+          }
         ];
       };
 
@@ -76,14 +72,21 @@
           {
             run = "zellij --layout helix";
             block = true;
-            desc = "Helix + Zellij setup ";
+            desc = "Open with helix";
           }
         ];
         "osu_game" = [
           {
             run = "osu! \"$@\"";
-            for = "unix";
             desc = "Open with osu!";
+          }
+        ];
+
+        qimgv = [
+          {
+            run = "qimgv \"$@\"";
+            orphan = true;
+            desc = "Open with qimgv";
           }
         ];
       };

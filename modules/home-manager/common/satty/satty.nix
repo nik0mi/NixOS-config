@@ -1,12 +1,17 @@
 { ... }:
 
 {
+  programs.satty.enable = true;
   programs.satty.settings = {
-    enable = true;
     general = {
+      early-exit = true;
       fullscreen = true;
       initial-tool = "brush";
       copy-command = "wl-copy";
+      actions-on-escape = [
+        "save-to-clipboard"
+        "exit"
+      ];
     };
   };
 }
