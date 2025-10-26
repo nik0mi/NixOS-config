@@ -32,6 +32,7 @@
     better-control # wifi / bluetooth / audio / display
     rmpc # music
     satty # screenshot
+    blobdrop # drag-and-drop
 
     #Utils
     mako

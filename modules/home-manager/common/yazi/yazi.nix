@@ -51,23 +51,46 @@
     };
 
     settings = {
+
       open = {
         prepend_rules = [
           {
             name = "*.osz";
             use = [ "osu_game" ];
           }
-        ];
 
+          {
+            mime = "text/*";
+            use = [ "edit" ];
+          }
+        ];
         rules = [
           {
             mime = "image/*";
             use = "qimgv";
           }
+          {
+            name = "*";
+            use = "open";
+          }
         ];
       };
 
       opener = {
+        "osu_game" = [
+          {
+            run = "osu! \"$@\"";
+            for = "unix";
+            desc = "Open with osu!";
+          }
+        ];
+        qimgv = [
+          {
+            run = "qimgv \"$@\"";
+            orphan = true;
+            desc = "Open with qimgv";
+          }
+        ];
         edit = [
           {
             run = "zellij --layout helix";
@@ -75,18 +98,11 @@
             desc = "Open with helix";
           }
         ];
-        "osu_game" = [
+        open = [
           {
-            run = "osu! \"$@\"";
-            desc = "Open with osu!";
-          }
-        ];
-
-        qimgv = [
-          {
-            run = "qimgv \"$@\"";
-            orphan = true;
-            desc = "Open with qimgv";
+            run = "xdg-open \"$@\"";
+            desc = "Open";
+            for = "unix";
           }
         ];
       };
