@@ -24,6 +24,7 @@
     osu-lazer-bin
 
     #OTHER
+    lutris
     orca-slicer
     gruvbox-plus-icons
   ];

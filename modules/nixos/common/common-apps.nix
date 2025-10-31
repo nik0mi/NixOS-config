@@ -1,8 +1,8 @@
 {
   pkgs,
-  inputs,
   ...
 }:
+
 {
   # PROGRAMS
   programs.fish.enable = true;
@@ -15,11 +15,12 @@
   environment.systemPackages = with pkgs; [
     #Apps
     git
+    localsend
     lazygit
     amnezia-vpn
     zellij
     telegram-desktop
-    inputs.zen-browser.packages.${pkgs.system}.default
+    firefox
 
     yazi # file manager
     mpv # video/audio

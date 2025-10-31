@@ -23,6 +23,7 @@
       }
     ];
   };
+
   home.packages = with pkgs; [
     #JSON
     vscode-json-languageserver
@@ -42,17 +43,12 @@
     nixd
 
     #PYTHON
-    # ty
-    # ruff
     black
-    # jedit
     python313Packages.python-lsp-server
     (python3.withPackages (
       ps: with ps; [
         tkinter
       ]
-    )) # python313Packages.jedi
-    # python313Packages.tkinter
-    # python313Packages.mathutils
+    )) 
   ];
 }
