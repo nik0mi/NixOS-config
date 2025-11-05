@@ -131,7 +131,7 @@
 
     screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
     spawn-at-startup = [
-      { command = [ "waybar" ]; }
+      # { command = [ "waybar" ]; }
       { command = [ "swww-daemon" ]; }
       { command = [ "swww img ~/.mine/wallpapers/1.png" ]; }
       { command = [ "systemctl --user start hyprpolkitagent" ]; }
@@ -151,6 +151,7 @@
         "Alt+B".action = spawn "firefox";
 
         "Alt+P".action = spawn "hyprpicker" "-a";
+        "Alt+Q".action = spawn "powermenu"; 
 
         "Mod+O".action = toggle-overview;
 

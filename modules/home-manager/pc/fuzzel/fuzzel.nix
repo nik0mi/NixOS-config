@@ -21,7 +21,7 @@
         lines = 5;
         line-height = 20;
         prompt = ''""'';
-        placeholder = "...";
+        placeholder = '''';
       };
     };
   };

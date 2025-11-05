@@ -2,6 +2,7 @@
 
 let
   volumeosd = pkgs.writeShellScriptBin "volumeosd" (builtins.readFile ./volumeosd.sh);
+  powermenu = pkgs.writeShellScriptBin "powermenu" (builtins.readFile ./powermenu.sh);
 in
 {
   # PROGRAMS
@@ -64,5 +65,6 @@ in
     fastfetch
 
     volumeosd
+    powermenu
   ];
 }
