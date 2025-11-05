@@ -1,8 +1,8 @@
-{
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 
+let
+  volumeosd = pkgs.writeShellScriptBin "volumeosd" (builtins.readFile ./volumeosd.sh);
+in
 {
   # PROGRAMS
   programs.fish.enable = true;
@@ -10,6 +10,7 @@
 
   # SERVICES
   services.gvfs.enable = true;
+  services.ratbagd.enable = true;
 
   # PROGRAMS APPS
   environment.systemPackages = with pkgs; [
@@ -22,6 +23,9 @@
     telegram-desktop
     firefox
 
+    libnotify
+    notify-osd
+    piper # mouse
     yazi # file manager
     mpv # video/audio
     qimgv # images
@@ -58,5 +62,7 @@
     #Terminal-utils
     btop
     fastfetch
+
+    volumeosd
   ];
 }

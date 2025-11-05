@@ -20,11 +20,12 @@
     logmein-hamachi
 
     #GAMING
+    wine-wayland
+    lutris
     vesktop
     osu-lazer-bin
 
     #OTHER
-    lutris
     orca-slicer
     gruvbox-plus-icons
   ];

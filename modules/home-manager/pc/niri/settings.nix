@@ -148,7 +148,7 @@
 
         "Alt+T".action = spawn "kitty";
         "Alt+Space".action = spawn "fuzzel";
-        "Alt+B".action = spawn "zen";
+        "Alt+B".action = spawn "firefox";
 
         "Alt+P".action = spawn "hyprpicker" "-a";
 
@@ -191,22 +191,20 @@
         "Mod+V".action = toggle-window-floating;
         "Mod+Shift+V".action = switch-focus-between-floating-and-tiling;
 
-        "Alt+Mod+S".action = spawn-sh "grim -g \"$(slurp)\" -t ppm - | satty --filename - --output-filename ~/Downloads/$(date '+%Y%m%d-%H:%M:%S').png";
-        "Shift+Mod+S".action = screenshot { show-pointer = false;};
+        "Shift+Mod+S".action = spawn-sh "grim -g \"$(slurp)\" -t ppm - | satty --filename - --output-filename ~/Downloads/$(date '+%Y%m%d-%H:%M:%S').png";
+        "Mod+S".action = screenshot { show-pointer = false;};
 
         "Mod+Shift+P".action = power-off-monitors;
 
         "XF86MonBrightnessUp".action = spawn "brightnessctl" "set" "5%+";
         "XF86MonBrightnessDown".action = spawn "brightnessctl" "set" "5%-";
 
-        "XF86AudioPlay".action = spawn "mpc" "toggle";
+        "XF86AudioPlay".action = spawn-sh "mpc toggle; mpc current | xargs -I {} notify-send -u normal '{}'";
         "XF86AudioPrev".action = spawn "mpc" "prev";
         "XF86AudioNext".action = spawn "mpc" "next";
 
-        "XF86AudioRaiseVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+";
-        "XF86AudioLowerVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-";
-        "XF86AudioMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
-        "XF86AudioMicMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
+        "XF86AudioRaiseVolume".action = spawn "volumeosd" "up"; 
+        "XF86AudioLowerVolume".action = spawn "volumeosd" "down"; 
       };
   };
 }

@@ -6,20 +6,26 @@
     enable = true;
     settings = {
       anchor = "top-center";
-      width = 200;
       text-alignment = "center";
-      border-color = lib.mkForce "#${config.lib.stylix.colors.base06}FF";
+      group-by = "app-name";
+      format = "<b>%s</b>\\n%b";
+      width = 400;
       border-radius = 8;
       border-size = 2;
       ignore-timeout = 1;
-      default-timeout = 3000;
+      default-timeout = 1000;
+      font=lib.mkForce "JetBrainsMono Nerd Font 12";
+      border-color = lib.mkForce "#${config.lib.stylix.colors.base04}ff";
+      text-color = lib.mkForce "#${config.lib.stylix.colors.base04}ff";
+      background-color = lib.mkForce "#${config.lib.stylix.colors.base00}ff";
     };
 
     extraConfig = ''
-      [urgency=normal]
-      background-color=#${config.lib.stylix.colors.base00}FF
-      border-color=#${config.lib.stylix.colors.base0A}FF
-      text-color=#${config.lib.stylix.colors.base04}FF
+      [app-name=volume]
+      height=1
+      border-radius=6
+      width=250
+      progress-color=source #${config.lib.stylix.colors.base04}ff
     '';
   };
 }
