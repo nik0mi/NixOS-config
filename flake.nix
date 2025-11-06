@@ -6,10 +6,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    niri.url = "github:sodiboo/niri-flake";
+    niri.inputs.nixpkgs.follows = "nixpkgs";
 
     stylix.url = "github:danth/stylix";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
@@ -21,10 +19,7 @@
     {
       # PC
       nixosConfigurations.pc = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-          pkgs-stable = nixpkgs.unstable.legacePackages.x86_64-linux;
-        };
+        specialArgs = { inherit inputs; };
         modules = [
           ./configs/pc/configuration.nix
 
@@ -49,6 +44,14 @@
 
           inputs.home-manager.nixosModules.default
           inputs.stylix.nixosModules.stylix
+
+          inputs.zapret-discord-youtube.nixosModules.default
+          {
+            services.zapret-discord-youtube = {
+              enable = true;
+              config = "general(ALT)";
+            };
+          }
         ];
       };
     };
