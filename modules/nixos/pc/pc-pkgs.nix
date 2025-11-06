@@ -11,7 +11,6 @@
     #APPS
     godot-mono
     gimp
-    vscode
     usbimager
     libreoffice
     ungoogled-chromium

@@ -20,11 +20,12 @@
       background-color = lib.mkForce "#${config.lib.stylix.colors.base00}ff";
     };
 
+    #up right down left
     extraConfig = ''
       [app-name=volume]
       height=1
-      outer-margin=100,0,100,100
-      anchor=top-left
+      outer-margin=0,0,10,0
+      anchor=bottom-center
       border-radius=6
       width=250
       progress-color=source #${config.lib.stylix.colors.base04}ff
