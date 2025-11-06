@@ -4,6 +4,11 @@
   imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ];
   nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
 
+  home.file.".local/bin/server.sh" = {
+    source = ./server.sh;
+    executable = true;
+  };
+
   services.minecraft-servers = {
     enable = true;
     eula = true;

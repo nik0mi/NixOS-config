@@ -3,6 +3,7 @@
 {
   imports = [
     ./mpd/mpd.nix
+    ./udiskie/udiskie.nix
     ./zellij/zellij.nix
     ./helix/helix.nix
     ./btop/btop.nix

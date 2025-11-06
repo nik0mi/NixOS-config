@@ -3,7 +3,7 @@
 {
   services.logmein-hamachi.enable = true;
   nixpkgs.config.allowUnfree = true;
-  users.users.ovce.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     #UTILS
     python3
     nftables

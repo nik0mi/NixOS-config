@@ -25,9 +25,6 @@ in
     telegram-desktop
     firefox
 
-    libnotify
-    notify-osd
-    udiskie
     piper # mouse
     yazi # file manager
     mpv # video/audio
@@ -44,6 +41,8 @@ in
 
     #Utils
     mako
+    libnotify 
+    notify-osd 
     swww
     nushell
     glib

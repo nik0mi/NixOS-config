@@ -127,6 +127,7 @@
 
     screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
     spawn-at-startup = [
+      { command = [ "udiske"]; }
       { command = [ "swww-daemon" ]; }
       { command = [ "swww img ~/.mine/wallpapers/1.png" ]; }
       { command = [ "systemctl --user start hyprpolkitagent" ]; }

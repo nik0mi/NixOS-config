@@ -1,11 +1,6 @@
 { ... }:
 
 {
-  home.file.".local/bin/server.sh" = {
-    source = ./server.sh;
-    executable = true;
-  };
-
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
@@ -31,7 +26,6 @@
             git add .
             sudo nixos-rebuild switch --flake ~/.mine/#laptop'';
       };
-      server = ''server.sh $argv'';
     };
   };
 }
