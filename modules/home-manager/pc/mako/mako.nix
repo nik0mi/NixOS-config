@@ -23,6 +23,8 @@
     extraConfig = ''
       [app-name=volume]
       height=1
+      outer-margin=100,0,100,100
+      anchor=top-left
       border-radius=6
       width=250
       progress-color=source #${config.lib.stylix.colors.base04}ff

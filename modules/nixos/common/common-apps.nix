@@ -12,6 +12,7 @@ in
   # SERVICES
   services.gvfs.enable = true;
   services.ratbagd.enable = true;
+  services.udisks2.enable = true;
 
   # PROGRAMS APPS
   environment.systemPackages = with pkgs; [
@@ -26,6 +27,7 @@ in
 
     libnotify
     notify-osd
+    udiskie
     piper # mouse
     yazi # file manager
     mpv # video/audio

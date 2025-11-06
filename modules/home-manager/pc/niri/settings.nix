@@ -18,7 +18,7 @@
     };
 
     layout = {
-      gaps = 10;
+      gaps = 0;
       center-focused-column = "never";
       preset-column-widths = [
         { proportion = 0.25; }
@@ -35,29 +35,25 @@
       default-column-width = {
         proportion = 0.5;
       };
+      border.enable = false;
       focus-ring.enable = false;
-      border = {
-        enable = true;
-        width = 1.5;
-        active.color = "#${config.lib.stylix.colors.base06}";
-        inactive.color = "#${config.lib.stylix.colors.base04}";
-        urgent.color = "#${config.lib.stylix.colors.base02}";
-      };
     };
 
     window-rules = [
+      { open-maximized = true; }
       {
-        geometry-corner-radius =
-          let
-            radius = 8.0;
-          in
-          {
-            bottom-left = radius;
-            bottom-right = radius;
-            top-left = radius;
-            top-right = radius;
-          };
-        clip-to-geometry = true;
+        matches = [{is-focused = false;}];
+        opacity = 0.95;
+      }
+      {
+        matches = [{
+          app-id="firefox$";
+          title="^Picture-in-Picture$";}];
+        open-floating = true;
+      }
+      {
+        matches = [{ app-id="kitty$"; }];
+        open-maximized= false;
       }
     ];
 
@@ -126,12 +122,11 @@
     };
 
     prefer-no-csd = true;
-    hotkey-overlay.skip-at-startup = true;
     gestures.hot-corners.enable = false;
+    hotkey-overlay.skip-at-startup = true;
 
     screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
     spawn-at-startup = [
-      # { command = [ "waybar" ]; }
       { command = [ "swww-daemon" ]; }
       { command = [ "swww img ~/.mine/wallpapers/1.png" ]; }
       { command = [ "systemctl --user start hyprpolkitagent" ]; }
@@ -151,7 +146,7 @@
         "Alt+B".action = spawn "firefox";
 
         "Alt+P".action = spawn "hyprpicker" "-a";
-        "Alt+Q".action = spawn "powermenu"; 
+        "Alt+Q".action = spawn "powermenu";
 
         "Mod+O".action = toggle-overview;
 
@@ -178,8 +173,6 @@
         "Mod+Shift+R".action = switch-preset-window-height;
 
         "Mod+F".action = maximize-column;
-        "Mod+Shift+F".action = fullscreen-window;
-        "Mod+Ctrl+F".action = expand-column-to-available-width;
 
         "Mod+C".action = center-column;
         "Mod+Ctrl+C".action = center-visible-columns;
@@ -192,20 +185,22 @@
         "Mod+V".action = toggle-window-floating;
         "Mod+Shift+V".action = switch-focus-between-floating-and-tiling;
 
-        "Shift+Mod+S".action = spawn-sh "grim -g \"$(slurp)\" -t ppm - | satty --filename - --output-filename ~/Downloads/$(date '+%Y%m%d-%H:%M:%S').png";
-        "Mod+S".action = screenshot { show-pointer = false;};
+        "Shift+Mod+S".action =
+          spawn-sh "grim -g \"$(slurp)\" -t ppm - | satty --filename - --output-filename ~/Downloads/$(date '+%Y%m%d-%H:%M:%S').png";
+        "Mod+S".action = screenshot { show-pointer = false; };
 
         "Mod+Shift+P".action = power-off-monitors;
 
         "XF86MonBrightnessUp".action = spawn "brightnessctl" "set" "5%+";
         "XF86MonBrightnessDown".action = spawn "brightnessctl" "set" "5%-";
 
-        "XF86AudioPlay".action = spawn-sh "mpc toggle; mpc current | xargs -I {} notify-send -u normal '{}'";
+        "XF86AudioPlay".action =
+          spawn-sh "mpc toggle; mpc current | xargs -I {} notify-send -u normal '{}'";
         "XF86AudioPrev".action = spawn "mpc" "prev";
         "XF86AudioNext".action = spawn "mpc" "next";
 
-        "XF86AudioRaiseVolume".action = spawn "volumeosd" "up"; 
-        "XF86AudioLowerVolume".action = spawn "volumeosd" "down"; 
+        "XF86AudioRaiseVolume".action = spawn "volumeosd" "up";
+        "XF86AudioLowerVolume".action = spawn "volumeosd" "down";
       };
   };
 }
