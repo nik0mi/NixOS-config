@@ -10,7 +10,7 @@
   services.libinput.touchpad.disableWhileTyping = true;
 
   hardware.bluetooth.enable = true;
-  hardware.bluettoh.powerOnBoot = false;
+  hardware.bluetooth.powerOnBoot = false;
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
