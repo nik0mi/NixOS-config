@@ -43,7 +43,6 @@
       { open-maximized = true; }
       {
         matches = [{is-focused = false;}];
-        opacity = 0.95;
       }
       {
         matches = [{
@@ -54,6 +53,7 @@
       {
         matches = [{ app-id="kitty$"; }];
         open-maximized= false;
+        opacity = 0.95;
       }
     ];
 

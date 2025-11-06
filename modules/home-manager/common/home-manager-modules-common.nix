@@ -11,6 +11,9 @@
     ./git/git.nix
     ./flameshot/flameshot.nix
     ./satty/satty.nix
+    ./fuzzel/fuzzel.nix
+    ./niri/niri.nix
+    ./mako/mako.nix
   ];
 
   services.hyprpolkitagent.enable = true;
