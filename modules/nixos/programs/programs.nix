@@ -6,7 +6,14 @@ let
   powermenu = pkgs.writeShellScriptBin "powermenu" (builtins.readFile ./scripts/powermenu.sh);
 in
 {
-  nixpkgs.config.allowUnfree = true;
+  imports = [
+    ./stylix/stylix.nix
+    ./greetd/greetd.nix
+    ./xdg-portals/xdg-portals.nix
+    ./grub/grub.nix
+    ./steam/steam.nix
+    ./nvidia/nvidia.nix 
+  ];
 
   # PROGRAMS
   programs.fish.enable = true;
@@ -16,21 +23,42 @@ in
   services.gvfs.enable = true;
   services.ratbagd.enable = true;
   services.udisks2.enable = true;
+  services.logmein-hamachi.enable = true;
 
-  # PROGRAMS APPS
+  # APPS
   environment.systemPackages = with pkgs; [
+    # Gaming
+    lutris
+    vesktop
+    osu-lazer-bin
 
-    #Apps
+    # Apps
     git
     zellij
+    zoom-us
     firefox
     lazygit
+    usbimager
     localsend
+    godot-mono
+    orca-slicer
     amnezia-vpn
+    libreoffice
     telegram-desktop
+    ungoogled-chromium
+
+    # Hamachi
+    haguichi
+    logmein-hamachi
+
+    # Wine
+    winetricks
+    wine-wayland
+    bottles-unwrapped
 
     mpv # video/audio
     yazi # file manager
+    nemo # file manager
     ouch # archives
     rmpc # music
     satty # screenshot
@@ -63,16 +91,20 @@ in
     nwg-look
     mediainfo
 
-    #WMstuff
+    # WMstuff
     waybar
     wl-clipboard
 
-    #Terminal
+    # Terminal
     fish
     kitty
 
-    #Terminal-utils
+    # Terminal-utils
     btop
     fastfetch
+
+    # Other
+    python3
+    gruvbox-plus-icons
   ];
 }

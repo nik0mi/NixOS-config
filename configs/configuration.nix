@@ -3,7 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nixos/pc/nix-pc.nix
+    ../modules/nixos/nixos.nix
   ];
 
   home-manager = {
