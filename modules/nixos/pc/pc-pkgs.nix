@@ -2,22 +2,26 @@
 
 {
   services.logmein-hamachi.enable = true;
-  nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     #UTILS
     python3
     nftables
 
     #APPS
-    godot-mono
     gimp
+    zoom-us
+    nemo
     usbimager
+    godot-mono
     libreoffice
     ungoogled-chromium
 
     haguichi
     logmein-hamachi
 
+    bottles-unwrapped
+    wineWowPackages.waylandFull
+    winetricks
     #GAMING
     wine-wayland
     lutris

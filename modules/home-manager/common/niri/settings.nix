@@ -140,14 +140,14 @@
       in
       {
         "Alt+E".action = sh "yazi";
-        "Alt+M".action = sh "termusic";
 
         "Alt+T".action = spawn "kitty";
         "Alt+Space".action = spawn "fuzzel";
         "Alt+B".action = spawn "firefox";
 
         "Alt+P".action = spawn "hyprpicker" "-a";
-        "Alt+Q".action = spawn "powermenu";
+        "Mod+E".action = spawn "powermenu";
+        "Mod+W".action = spawn "time";
 
         "Mod+O".action = toggle-overview;
 

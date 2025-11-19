@@ -1,10 +1,13 @@
 { pkgs, ... }:
 
 let
+  time = pkgs.writeShellScriptBin "time" (builtins.readFile ./scripts/time.sh);
   volumeosd = pkgs.writeShellScriptBin "volumeosd" (builtins.readFile ./scripts/volumeosd.sh);
   powermenu = pkgs.writeShellScriptBin "powermenu" (builtins.readFile ./scripts/powermenu.sh);
 in
 {
+  nixpkgs.config.allowUnfree = true;
+
   # PROGRAMS
   programs.fish.enable = true;
   programs.amnezia-vpn.enable = true;
@@ -16,46 +19,53 @@ in
 
   # PROGRAMS APPS
   environment.systemPackages = with pkgs; [
+
     #Apps
     git
-    localsend
-    lazygit
-    amnezia-vpn
     zellij
-    telegram-desktop
     firefox
+    lazygit
+    localsend
+    amnezia-vpn
+    telegram-desktop
 
-    piper # mouse
-    yazi # file manager
     mpv # video/audio
-    qimgv # images
-    termusic # music
-    zathura # pdf
+    yazi # file manager
     ouch # archives
-    hyprpicker # color picker
-    gparted # disks
-    better-control # wifi / bluetooth / audio / display
     rmpc # music
     satty # screenshot
+    piper # mouse
+    qimgv # images
+    gparted # disks
+    zathura # pdf
     blobdrop # drag-and-drop
+    hyprpicker # color picker
+    better-control # wifi / bluetooth / audio / display
 
-    #Utils
+    #Fuzzel
+    fuzzel
+    time
+    volumeosd
+    powermenu
+
+    #Notifications
     mako
     libnotify 
     notify-osd 
-    swww
-    nushell
-    glib
+
+    #Utils
     mpd
-    mediainfo
-    nwg-look
-    slurp
+    swww
+    glib
     grim
+    slurp
+    nushell
+    nwg-look
+    mediainfo
 
     #WMstuff
     waybar
     wl-clipboard
-    fuzzel
 
     #Terminal
     fish
@@ -64,8 +74,5 @@ in
     #Terminal-utils
     btop
     fastfetch
-
-    volumeosd
-    powermenu
   ];
 }
